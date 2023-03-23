@@ -1,3 +1,5 @@
+<br>
+
 <div align="center">
   <img src="./florrIcon-32x32.png"></img>
 
@@ -12,12 +14,12 @@
 
 # 注意事项
 - 需要浏览器装有 [Tampermonkey](https://tampermonkey.net/) 或 [Violentmonkey](https://violentmonkey.github.io/) 插件。
-- 对性能会有轻微影响。
+- 会对性能产生轻微影响。
 - 可能会导致您在聊天框输入的内容变成中文，您可以尝试添加一个空格以解决这个问题，我们正在尝试修复它。
 
 
 # 安装方法
-1. 点击[链接](https://raw.githubusercontent.com/FlorrModsTeam/Florr-Evolved/master/src/Florr-Evolved.user.js)
+1. 点击[链接](https://raw.githubusercontent.com/FlorrModsTeam/Florr-Evolved/master/src/Florr-Evolved.user.js)。
 2. 在脚本管理器弹出的页面中点击安装即可。
 
 
