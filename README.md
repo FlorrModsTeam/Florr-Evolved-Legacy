@@ -1,0 +1,63 @@
+<div align="center">
+  <img src="./florrIcon-32x32.png"></img>
+
+  <h1>FlorrTranslate-zh_CN (Florr.io 汉化)</h1>
+
+  <p>「 强大的 Florr.io 增强脚本 」</p>
+
+  <p>现在还不是（划掉</p>
+</div>
+
+<br>
+
+# 注意事项
+- 需要浏览器装有 [Tampermonkey](https://tampermonkey.net/) 或 [Violentmonkey](https://violentmonkey.github.io/) 插件。
+- 对性能会有轻微影响。
+- 可能会导致您在聊天框输入的内容变成中文，您可以尝试添加一个空格以解决这个问题，我们正在尝试修复它。
+
+
+# 安装方法
+1. 点击[链接](https://raw.githubusercontent.com/FlorrModsTeam/Florr-Evolved/master/src/Florr-Evolved.user.js)
+2. 在脚本管理器弹出的页面中点击安装即可。
+
+
+# 实现功能
+- 文本汉化率达到 99%。
+- 可快捷更换服务器。
+- 内置大地图。
+- 重制花瓣再装填动画，可选择关闭。
+- 提供了一个友好的字体更换入口。
+
+
+# 其他分发平台
+Greasyfork：暂无。
+
+QQ：暂无。
+
+
+# 贡献者
+[lexiyvv](https://github.com/lexiyvv)
+
+florr修仙传
+
+[Tinhone](https://github.com/Tinhone)
+
+[ztrztr](https://github.com/ZhongTianrui)
+
+[squid233](https://github.com/squid233)
+
+
+# 隐私声明
+本脚本所有任务均在本地完成，图片全部编码为 base64 后内置，不会进行任何网络通讯。
+
+我们保证该脚本安全，不会对您的电脑产生任何危害。
+
+但对于非官方分发平台下载的版本以及不由汉化组成员发布的版本，其安全性我们不予保证，请自行甄别。
+
+
+# 开源许可
+见 [LICENSE](./LICENSE)。
+
+
+# 参与项目
+欢迎各位大佬来为项目添砖加瓦，具体请参考[代码贡献指南](./CONTRIBUTING.md)。
