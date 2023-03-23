@@ -16,6 +16,7 @@
 
 (function () {
     'use strict';
+    //Server change country script
     let url;
     const nativeWebSocket = unsafeWindow.WebSocket;
     unsafeWindow.WebSocket = function (...args) {
@@ -88,7 +89,7 @@
         else if (code2.toLowerCase() == 'eu') cp6.forceServerID(servers2[1])
         else if (code2.toLowerCase() == 'as') cp6.forceServerID(servers2[2])
     }
-
+    //change server script
     var urlA = []
     setInterval(function () {
         urlA.unshift(url)
