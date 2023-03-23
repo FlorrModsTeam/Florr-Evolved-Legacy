@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./florrIcon-32x32.png"></img>
 
-  <h1>FlorrTranslate-zh_CN (Florr.io 汉化)</h1>
+  <h1>Florr Evolved</h1>
 
   <p>「 强大的 Florr.io 增强脚本 」</p>
 
