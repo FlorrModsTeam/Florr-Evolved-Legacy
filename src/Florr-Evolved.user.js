@@ -3,7 +3,7 @@
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
 // @version         0.1.1
-// @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233
+// @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233, Samer Kizi
 // @license         GPL-3.0
 // @match           *://florr.io/*
 // @grant           GM_setValue
@@ -16,7 +16,7 @@
 
 (function () {
     'use strict';
-    //Server change country script
+    //from https://greasyfork.org/zh-CN/scripts/461100-florr-io-shows-current-server-you-are-in-easily-switch-server
     let url;
     const nativeWebSocket = unsafeWindow.WebSocket;
     unsafeWindow.WebSocket = function (...args) {
@@ -89,7 +89,7 @@
         else if (code2.toLowerCase() == 'eu') cp6.forceServerID(servers2[1])
         else if (code2.toLowerCase() == 'as') cp6.forceServerID(servers2[2])
     }
-    //change server script
+
     var urlA = []
     setInterval(function () {
         urlA.unshift(url)
