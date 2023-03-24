@@ -50,6 +50,14 @@ florr修仙传
 [squid233](https://github.com/squid233)
 
 
+# 鸣谢
+没有这些项目，本脚本将不可能出现。
+
+[florr.io | Shows current server you are in & Easily switch server](https://greasyfork.org/zh-CN/scripts/461100)
+
+[FlorrTranslate-zh_CN (Florr.io 汉化)](https://github.com/FlorrModsTeam/FlorrTranslate-zh_CN)
+
+
 # 隐私声明
 本脚本所有任务均在本地完成，图片全部编码为 base64 后内置，不会进行任何网络通讯。
 

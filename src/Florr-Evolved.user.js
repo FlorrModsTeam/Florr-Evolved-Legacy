@@ -2,10 +2,12 @@
 // @name            Florr.io Evolved
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
-// @version         0.1.1
+// @version         0.1.2
 // @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233, Samer Kizi
 // @license         GPL-3.0
+// @run-at          document-start
 // @match           *://florr.io/*
+// @grant           GM_addStyle
 // @grant           GM_setValue
 // @grant           GM_getValue
 // @compatible      firefox V50+
@@ -16,7 +18,7 @@
 
 (function () {
     'use strict';
-    //from https://greasyfork.org/zh-CN/scripts/461100-florr-io-shows-current-server-you-are-in-easily-switch-server
+    //from https://greasyfork.org/zh-CN/scripts/461100 v1.0.5
     let url;
     const nativeWebSocket = unsafeWindow.WebSocket;
     unsafeWindow.WebSocket = function (...args) {
@@ -96,6 +98,17 @@
         if (urlA.length > 2) urlA.splice(2)
         if (urlA.at(-1) != urlA[0]) getServerId()
     }, 1000)
+
+
+
+
+
+
+
+
+
+
+    //from https://greasyfork.org/zh-CN/scripts/459927 v0.2.1
     let onkeydownFunction = window.onkeydown ? window.onkeydown : function (e) { }
     function customServer() {
         let name = prompt("请输入需要切换的服务器名称 Please enter the server name to switch")
@@ -112,6 +125,17 @@
         }
         e.preventDefault()
     }
+
+
+
+
+
+
+
+
+
+
+    //FlorrTranslate-zh_CN v1.0.2
     if (typeof (GM_getValue("customFont")) == "undefined") { //可在 储存 选项卡中更改字体与字重
         const defaultCustomFont = {
             fontFamily: 'Microsoft YaHei',
@@ -156,8 +180,8 @@
         'Loading...': '加载中...',
         'Account': '账号',
         'Changelog': '更新日志',
-        'Join our Discord community!': '加入我们的Discord社区！',
-        '加入我们的QQ群!': '加入我们的QQ群！',
+        'Join our Discord community!': '加入我们的Discord社区!',
+        '加入我们的QQ群!': '加入我们的QQ群!',
 
 
 
@@ -176,9 +200,10 @@
         'Credits': '荣誉墙',
         'Special Thanks': '特别鸣谢',
         'Made by Matheus Valadares': '制作: Matheus Valadares',
-        'Some icons by Lorc Skoll from game-icons.net': '部分图标: Lorc Skoll 来自 game-icons.net',
+        'Some icons by Lorc & Skoll from game-': '部分图标: Lorc & Skoll 来自',
+        'icons.net': 'game-icons.net',
         'Some icons from twemoji.twitter.com': '部分图标: twemoji.twitter.com',
-        'Some tiles by kenney.nl': '部分材质贴图: kenney.nl',
+        'Some tiles by kenney.nl': '部分纹理贴图: kenney.nl',
 
         'Privacy Policy': '隐私策略',
 
@@ -577,7 +602,7 @@
 
         'Stick': '树枝',
         'Mysterious Stick': '神秘的树枝',
-        'A mysterious stick that summons the forces of the wind.': '这个神秘的树枝可以召唤风的力量（生成沙尘暴）',
+        'A mysterious stick that summons the forces of the wind.': '这个神秘的树枝可以召唤风的力量来生成沙尘暴。',
         'Spawn: ': '生成：',
 
 
@@ -589,7 +614,7 @@
 
         'Third Eye': '第三只眼',
         'Allows your flower to expand your petals further out.': '能使装备的花瓣进一步张开，攻击距离更远。',
-        'Does not stack.': '花瓣效果不叠加',
+        'Does not stack.': '花瓣效果不叠加。',
         'Extra range: ': '距离加成：',
 
 
@@ -608,12 +633,12 @@
 
 
         'Web': '网',
-        'It\'s really sticky.': '黏糊糊的，用于减速敌人',
+        'It\'s really sticky.': '黏糊糊的，用于减速敌人。',
 
 
 
         'Wing': '翅膀',
-        'It comes and goes.': '像回旋镖一样的翅膀',
+        'It comes and goes.': '像回旋镖一样的翅膀。',
 
 
 
