@@ -1045,6 +1045,13 @@
 
     //获取翻译
     function getTranslate(text) {
+        if (text == "AFK Check") {
+            if(window.Notification && Notification.permission !== "denied") {
+    Notification.requestPermission(function(status) {
+        var n = new Notification('AFK！', { body: '您有一个 AFK Check 需要点击！' });
+    });
+}
+        }
         if (typeof (translate[text]) == 'string') { return translate[text] }
         switch (true) {
             //1.2% success chance
