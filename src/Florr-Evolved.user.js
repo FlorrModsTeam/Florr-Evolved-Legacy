@@ -2,7 +2,7 @@
 // @name            Florr.io Evolved
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
-// @version         0.1.1
+// @version         0.1.2
 // @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233
 // @license         GPL-3.0
 // @match           *://florr.io/*
@@ -1046,9 +1046,10 @@
     //获取翻译
     function getTranslate(text) {
         if (text == "AFK Check") {
+    Notification.requestPermission(function(status) {
         var n = new Notification('AFK！', { body: '您有一个 AFK Check 需要点击！' });
 }
-        }
+        )};
         if (typeof (translate[text]) == 'string') { return translate[text] }
         switch (true) {
             //1.2% success chance
@@ -1084,7 +1085,7 @@
             case (/An? \w\w\w\w\w .+ has spawned somewhere!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/);
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned somewhere!)/);
-        var n = new Notification('Super！！！', { body: '有一个 Super Mob 出现了！！！' });
+        var nn = new Notification('Super！！！', { body: '有一个 Super Mob 出现了！！！' });
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在某个地图中生成！`;
             }
         }
