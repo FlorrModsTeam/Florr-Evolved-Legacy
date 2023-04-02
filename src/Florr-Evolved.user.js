@@ -1046,10 +1046,7 @@
     //获取翻译
     function getTranslate(text) {
         if (text == "AFK Check") {
-            if(window.Notification && Notification.permission !== "denied") {
-    Notification.requestPermission(function(status) {
         var n = new Notification('AFK！', { body: '您有一个 AFK Check 需要点击！' });
-    });
 }
         }
         if (typeof (translate[text]) == 'string') { return translate[text] }
@@ -1079,6 +1076,7 @@
             case (/An? \w\w\w\w\w .+ has spawned!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/);
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned!)/);
+        var n = new Notification('Ulrta！', { body: '有一个 Ultra Mob 在您的服中出现了！' });
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在地图中生成！`;
             }
 
@@ -1086,6 +1084,7 @@
             case (/An? \w\w\w\w\w .+ has spawned somewhere!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/);
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned somewhere!)/);
+        var n = new Notification('Super！！！', { body: '有一个 Super Mob 出现了！！！' });
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在某个地图中生成！`;
             }
         }
