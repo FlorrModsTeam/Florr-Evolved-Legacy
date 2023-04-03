@@ -1045,11 +1045,19 @@
 
     //获取翻译
     function getTranslate(text) {
-        if (text == "AFK Check") {
+        if (text == "AFK Check") {/*
     Notification.requestPermission(function(status) {
-        var n = new Notification('AFK！', { body: '您有一个 AFK Check 需要点击！' });
+
+        var n = new Notification('AFK！', { body: '您有一个 AFK Check 需要点击！', requireInteraction: true});
+        console.log("afk");
 }
-        )};
+        )
+*/
+            		var beepsound = new Audio(
+'https://ztrztr.top/wp-content/uploads/2023/04/哔声_-哔声1秒_Freesound.wav');
+		beepsound.play();
+            console.log("AFK Check!");
+        };
         if (typeof (translate[text]) == 'string') { return translate[text] }
         switch (true) {
             //1.2% success chance
@@ -1077,7 +1085,10 @@
             case (/An? \w\w\w\w\w .+ has spawned!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/);
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned!)/);
-        var n = new Notification('Ulrta！', { body: '有一个 Ultra Mob 在您的服中出现了！' });
+                            		var beepsound1 = new Audio(
+'https://ztrztr.top/wp-content/uploads/2023/04/哔声_-哔声1秒_Freesound.wav');
+		beepsound.play();
+            console.log("Ultra!");
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在地图中生成！`;
             }
 
@@ -1085,7 +1096,10 @@
             case (/An? \w\w\w\w\w .+ has spawned somewhere!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/);
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned somewhere!)/);
-        var nn = new Notification('Super！！！', { body: '有一个 Super Mob 出现了！！！' });
+                            		var beepsound2 = new Audio(
+'https://ztrztr.top/wp-content/uploads/2023/04/哔声_-哔声1秒_Freesound.wav');
+		beepsound.play();
+            console.log("Super!");
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在某个地图中生成！`;
             }
         }
