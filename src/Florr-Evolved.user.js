@@ -303,6 +303,11 @@
 
 
 
+        'Mark': '黑暗标记',
+		'A dark mark that binds itself to a fallen soul.': '把死花送到地狱。',
+
+
+
 		'Antennae': '触角',
 		'Allows your flower to sense foes farther away. Does not stack.': '让视野更宽广。此花瓣的效果不能叠加。',
 		'Extra vision: ': '额外视野：',
@@ -872,6 +877,11 @@
 
 		'Centipede': '蜈蚣',
 		'It\'s just there doing its thing.': '花不犯它，它不犯花。',
+
+
+
+		'Hel Beetle': '地狱甲虫',
+		'Scourge that spawns in the other plane.': '地狱·超级加强·甲虫。',
 
 
 
