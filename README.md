@@ -30,6 +30,8 @@
 - - 更换服号：`ctrl+shift+/`。
 - 重制花瓣再装填动画，可选择关闭。
 - 提供了一个友好的字体更换入口。
+- Ultra/AFK Check（待做）
+- 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
 
 
 # 其他分发平台
