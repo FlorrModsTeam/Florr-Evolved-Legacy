@@ -101,9 +101,9 @@
     }
 
 
-    // document.documentElement.addEventListener("keydown", function () {
-    //     if (event.keyCode === 9) getServerId()
-    //     else if (event.keyCode === 32 && event.shiftKey && event.ctrlKey) changeServer()
+    document.documentElement.addEventListener("keydown", function () {
+         if (event.keyCode === 9) getServerId()
+         else if (event.keyCode === 32 && event.shiftKey && event.ctrlKey) changeServer()
     //     else if (event.shiftKey && event.ctrlKey && event.keyCode === 65) {
     //         var message = prompt("哪个ultra？");
     //         var Sid = getsid();
@@ -127,7 +127,7 @@
     //             }
     //         }
     //     }
-    // });
+    });
 
 
     const toast = new class {
