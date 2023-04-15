@@ -27,11 +27,11 @@
 - 文本汉化率达到 99%。
 - 检测服号（Tab）。
 - 可快捷更换服务器。更换方法：
-- - 更换地区：`ctrl+shift+space`。
-- - 更换服号：`ctrl+shift+/`。
+- - 更换地区：`ctrl+l`。
+- - 更换服号：`ctrl+m`。
 - 重制花瓣再装填动画，可选择关闭。
 - 提供了一个友好的字体更换入口。
-- Ultra 全服通告（`ctrl+shift+a` 通告）
+- Ultra 全服通告（`ctrl+]` 通告）
 - 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
 
 
