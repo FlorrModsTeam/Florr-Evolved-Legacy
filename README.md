@@ -25,6 +25,7 @@
 
 # 实现功能
 - 文本汉化率达到 99%。
+- 检测服号（Tab）。
 - 可快捷更换服务器。更换方法：
 - - 更换地区：`ctrl+l`。
 - - 更换服号：`ctrl+m`。
@@ -32,10 +33,10 @@
 - 提供了一个友好的字体更换入口。
 - Ultra 全服通告（`ctrl+]` 通告，在 <https://chat.ztrztr.top/channel/Ultra-Super-Spawned> 查看）
 - 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
-
+- 说说功能，按 `ctrl+[` 即可发送说说，在 <https://chat.ztrztr.top/channel/Chat> 查看
 
 # 其他分发平台
-Greasyfork：暂无。
+Greasyfork：<https://greasyfork.org/zh-CN/scripts/464050-florr-io-evolved>。
 
 QQ：暂无。
 
