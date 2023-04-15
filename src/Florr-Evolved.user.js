@@ -2,7 +2,7 @@
 // @name            Florr.io Evolved
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
-// @version         0.1.1
+// @version         0.1.1.1
 // @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233
 // @license         GPL-3.0
 // @run-at          document-start
@@ -537,7 +537,7 @@
     "attachments": [
       {
         "title": "截图！",
-        "text": mssage,
+        "text": message,
         "image_url": imageDataUrl,
         "color": "#764FA5"
       }
@@ -751,7 +751,7 @@
 
     if (typeof (GM_getValue("customFont")) == "undefined") { //可在 储存 选项卡中更改字体与字重
         const defaultCustomFont = {
-            fontFamily: "Ubuntu, Microsoft YaHei",
+            fontFamily: "Ubuntu",
             fontWeight: "bold",
             fontSizeMin: 14
         }
@@ -1840,7 +1840,7 @@
         //重写字符描边函数
         prototype.strokeText = function (text, x, y) {
             const newFontSize = getBlurFontSize(this.font);
-            this.font = getApplicableFontStr(newFontSize);
+//            this.font = getApplicableFontStr(newFontSize);
             //alertTargetStr(text, "Flower Health");
             //preventTooFastLog(text, x, y);
             return this.rewriteStrokeText(getTranslate(text, this.fillStyle), x, y);
