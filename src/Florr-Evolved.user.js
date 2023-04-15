@@ -53,14 +53,14 @@
 
 
 
-    
+
     div.tab-switcher {
         overflow: auto;
         width: 20vw;
         height: 30vh;
         background-color: rgb(0, 0, 0);
     }
-    
+
     div.tab-switcher>button.tab {
         cursor: pointer;
         margin: 0;
@@ -74,15 +74,15 @@
         text-align: left;
         display: block;
     }
-    
+
     div.tab-switcher>button.tab:hover {
         background-color: rgb(207, 207, 207);
     }
-    
+
     div.tab-switcher>button.tab:active {
         background-color: rgb(184, 184, 184);
     }
-    
+
     div.tab-switcher>button.tab>div {
         position: relative;
         width: 100%;
@@ -90,12 +90,12 @@
         transform: none;
         transition: transform cubic-bezier(.22, .61, .36, 1) 0.5s;
     }
-    
+
     div.tab-switcher>button.tab:active>div {
         transform: scale(0.975);
         transition: none;
     }
-    
+
     div.tab-switcher>button.tab>div>div {
         position: absolute;
         width: 100%;
@@ -108,7 +108,7 @@
         overflow: hidden;
         white-space: nowrap;
     }
-    
+
     div.tab-switcher>button.tab>div>div>span {
         display: inline;
         margin: 0;
@@ -116,7 +116,7 @@
         white-space: nowrap;
         line-height: 0;
     }
-    
+
     div.tab-switcher>div.tab-mark {
         transform: translate(0vw, 0vh);
         /*-4.5vh:-1.5vh-3vh*/
@@ -127,81 +127,81 @@
         transition: all cubic-bezier(0, 1, 0, .95) 0.35s;
         pointer-events: none;
     }
-    
-    
-    
+
+
+
     #data-utl {
         font-family: consolas;
     }
-    
+
     #data-utl .list {
         margin: 0 -1vw 0 -1vw;
         width: 80%;
         font-size: 1.1vw;
     }
-    
+
     #data-utl .list#n {
         padding: 0 1vw 0.9vh 1vw;
     }
-    
+
     #data-utl .list#n>div {
         display: inline-block;
     }
-    
+
     #data-utl .list>div>div {
         overflow: hidden;
     }
-    
+
     #data-utl .list div#button {
         margin: 1.1vh 0 0.5vh 0;
     }
-    
+
     #data-utl .list>div>div>div {
         display: inline-block;
     }
-    
+
     #data-utl .list #uid {
         width: 12%
     }
-    
+
     #data-utl .list #token {
         width: 55%;
     }
-    
+
     #data-utl .list #state {
         width: 33%;
     }
-    
+
     #data-utl .list:not(#n) {
         /*删掉cursor这一句会导致无法使用下面的active选择器*/
         cursor: pointer;
         padding: 0.9vh 1vw 0.9vh 1vw;
     }
-    
+
     #data-utl .list:not(#n):hover {
         background-color: rgb(230, 230, 230);
     }
-    
+
     #data-utl .list:not(#n):active {
         background-color: rgb(204, 204, 204);
     }
-    
+
     #data-utl .list:not(#n)>div {
         transition: transform cubic-bezier(.22, .61, .36, 1) 0.5s;
     }
-    
+
     #data-utl .list:not(#n):active>div {
         transform: scale(0.987);
         transition: none;
     }
-    
+
     #data-utl .list:not(#n) .normal-button {
         margin: 0;
         float: right;
     }
-    
-    
-    
+
+
+
     .normal-button {
         cursor: pointer;
         margin: 2vh 0.3vw 2vh 0;
@@ -209,16 +209,16 @@
         background-color: rgb(229, 229, 229);
         border: rgb(229, 229, 229) solid 0.2vw;
     }
-    
+
     .normal-button:hover {
         border: rgb(183, 183, 183) solid 0.2vw;
     }
-    
+
     .normal-button:active {
         border: rgb(204, 204, 204) solid 0.2vw;
         background: rgb(204, 204, 204);
     }
-    
+
     .normal-button p {
         transform: none;
         display: block;
@@ -226,14 +226,14 @@
         font-size: 1vw;
         transition: transform cubic-bezier(.22, .61, .36, 1) 0.5s;
     }
-    
+
     .normal-button:active p {
         transform: scale(0.93);
         transition: none;
     }
-    
-    
-    
+
+
+
     input {
         padding: 0.2vh 0.7vw 0.2vh 0.7vw;
         border: rgb(150, 150, 150) solid 0.2vw;
@@ -245,64 +245,64 @@
         font-size: 0.95vw;
         margin: 0.7vh 0 0.7vh 0;
     }
-    
+
     input:hover {
         border: rgb(102, 102, 102) solid 0.2vw;
     }
-    
+
     input:focus-visible {
         background-color: rgb(255, 255, 255);
         border: rgb(0, 120, 215) solid 0.2vw;
         outline: none;
     }
-    
-    
-    
+
+
+
     @keyframes mymove1 {
         0% {
             opacity: 0;
         }
-    
+
         100% {
             opacity: 1;
         }
     }
-    
+
     @keyframes mymove2 {
         0% {
             opacity: 1;
         }
-    
+
         100% {
             opacity: 0;
         }
     }
-    
+
     @keyframes box {
         0% {
             opacity: 0;
             transform: translateX(-50%) translateY(-50%) scale(1.05);
         }
-    
+
         100% {
             opacity: 1;
             transform: translateX(-50%) translateY(-50%) scale(1);
         }
     }
-    
+
     @keyframes box2 {
         0% {
             opacity: 1;
             transform: translateX(-50%) translateY(-50%) scale(1);
         }
-        
+
         100% {
             opacity: 0;
             transform: translateX(-50%) translateY(-50%) scale(1.05);
         }
-        
+
     }
-    
+
     #alert {
         position: absolute;
         z-index: 100000000;
@@ -314,20 +314,20 @@
         opacity: 0;
         pointer-events: none;
     }
-    
+
     #alert[opening=false] {
         pointer-events: none;
         opacity: 0;
         animation: mymove2 cubic-bezier(.17, .84, .44, 1) 300ms;
     }
-    
+
     #alert[opening=true] {
         display: block;
         pointer-events: initial;
         opacity: 1;
         animation: mymove1 cubic-bezier(.17,.84,.44,1) 300ms;
     }
-    
+
     #alert-box {
         display: none;
         position: absolute;
@@ -337,54 +337,54 @@
         border: rgb(200, 200, 200) solid 0.065vw;
         transform: translateX(-50%) translateY(-50%);
     }
-    
+
     #alert[opening=false] #alert-box {
         animation: box2 cubic-bezier(0,.5,.5,1) 350ms;
     }
-    
+
     #alert[opening=true] #alert-box {
         animation: box cubic-bezier(0,.8,.17,1) 350ms;
     }
-    
+
     #alert-box>div {
         display: none;
         width: 26vw;
     }
-    
+
     #alert-box>div>.describe {
         display: inline-block;
         width: 26vw;
         padding: 3vh 2vw 3vh 2vw;
         background: rgb(229, 229, 229);
     }
-    
+
     #alert-box>div>.interaction {
         display: inline-block;
         width: 26vw;
         padding: 3vh 2vw 3vh 2vw;
         background: rgb(255, 255, 255);
     }
-    
+
     #alert-box>div>.describe>.title {
         margin: 0 0 1.5vh 0;
         font-size: 2vw;
         line-height: 2vw;
     }
-    
+
     #alert-box>div>.describe>.text {
         margin: 0;
         font-size: 1vw;
         line-height: 1vw;
     }
-    
+
     #alert-box>div>.interaction>input:nth-of-type(1) {
         margin: 0 0 0.7vh 0;
     }
-    
+
     #alert-box>div>.interaction>input:nth-last-of-type(1) {
         margin: 0.7vh 0 0 0;
     }
-    
+
     #alert-box>div>.interaction>button {
         float: right;
         margin: 2vh 0 0 0.5vw;
@@ -450,7 +450,6 @@
     }
 
 
-
     function dq(query) {
         return document.querySelector(query)
     }
@@ -460,6 +459,7 @@
 
     let alertOpening = new Array()
     function alertOpen(id) {
+        /*
         for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
         dq("div#alert").setAttribute("opening", "true")
         dq("div#alert-box").setAttribute("opening", "true")
@@ -471,7 +471,45 @@
             let x = a.x
             let y = a.y
             console.log(a)
+        }*/
+        var message = prompt("哪个ultra？请填写等级+ultra，比如说 U M28 或 S ztr。请务必如实回答！");
+        var Sid = getsid();
+        const imageDataUrl = canvas.toDataURL();
+        var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+
+    httpRequest.open("POST",'https://chat.ztrztr.top/hooks/642904a166a580d8d2c7580c/XkAf4G9yfvEXNLLChLwYvqKoScmv3E8heyLSZkAgPC6cqCjk',true);
+    httpRequest.setRequestHeader("Content-Type","application/json");
+        var Snd = {
+    "text": "Ultra or Super Spawned!",
+    "attachments": [
+      {
+        "title": "A Ultra or Super just spawned!",
+        "text": 'Ultra ' + message + ' spawned in ' + Sid + ' Server!',
+        "image_url": imageDataUrl,
+        "color": "#764FA5"
+      }
+    ]
+  };
+        console.log(Snd);
+    httpRequest.send(JSON.stringify(Snd));
+    httpRequest.onreadystatechange = ()=>{
+        if(httpRequest.readyState == 4 && httpRequest.status == 200){
+            var data = JSON.parse(httpRequest.responseText);
+            console.log(data);
         }
+    }
+
+
+/*
+        httpRequest.open('GET', 'https://api.ztrztr.top/api/fc_send?un=someone&sid=Ultra ' + message + ' spawned in ' + Sid + ' Server!', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var json = httpRequest.responseText;//获取到json字符串，还需解析
+                console.log(json);
+            }
+        };
+*/
     }
     function alertClose(id) {
         for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
@@ -500,8 +538,8 @@
                     <div class="text">当您遇到 Ultra/Super 在聊天栏提示生成的情况，可以在此处报告</div>
                 </div>
                 <div class="interaction">
-                    <input id="level" type="text" name="level" placeholder="level">
-                    <input id="name" type="text" name="name" placeholder="name">
+                    <input id="level"  name="level" placeholder="level">
+                    <input id="name"  name="name" placeholder="name">
                     <button class="normal-button" id="submit">
                         <p>提交</p>
                     </button>
@@ -543,7 +581,7 @@
     document.body.appendChild(doc)
 
 
-    const reportMobSpawnApi = "https://api.ztrztr.top/api/fc_send?un=someone&sid=" //ps:"./Ptest.php?name=test&nameone=testone"
+    const reportMobSpawnApi = "https://api.ztrztr.top/api/fc_send?un=someone&sid=" //
 
 
     function reportMobSpawnToApi(rarity, name, serverRegion) {
@@ -625,6 +663,19 @@
             return
         }
         toast.appear(`服务器连接正常<br>服务器地域: ${userServerInfo["serverRegion"]}&nbsp&nbsp服务器ID: ${userServerId}&nbsp&nbsp地图编号: ${userServerInfo["mapNumber"]}<br>${m28nApiUrl.slice(6, -1)}`)
+    }
+    function getsid() {
+        if (typeof (m28nApiUrl) == "undefined") {
+            toast.appear("请先连接至 Florr.io 的服务器")
+            return
+        }
+        const userServerId = m28nApiUrl.slice(6, 9)
+        const userServerInfo = serversInfo[userServerId]
+        if (typeof (userServerInfo) == "undefined") {
+            toast.appear("正在初始化，请稍后")
+            return
+        }
+        return userServerId;
     }
 
 
@@ -1763,6 +1814,7 @@
         onkeydownFunction(e) //当 window.onkeydown 已有其他代码需要执行时，先让其他代码执行
         switch (e.key) {
             case '"': //ctrl+shift+'
+                console.log("map");
                 if (!e.ctrlKey) { return }
                 if (mapOpening) {
                     mapOpening = false
@@ -1773,7 +1825,7 @@
                     mapImgElement.style.display = "inline"
                 }
                 return
-            case "N": //ctrl+shift+n
+            case ".": //ctrl+shift+n
                 if (!e.ctrlKey) { return }
                 if (mapOpening) { window.open(customMapImgHere.img) }
                 return
@@ -1795,6 +1847,9 @@
                 getUserServerId()
                 console.log(mobReport.getAvailableReportList())
                 return
+            case "Tab":
+                getUserServerId()
+                console.log(mobReport.getAvailableReportList())
             case "l":
                 if (!e.ctrlKey) { return }
                 changeServerByRegion()
