@@ -2,7 +2,7 @@
 // @name            Florr.io Evolved
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
-// @version         0.1.0
+// @version         0.1.1
 // @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233
 // @license         GPL-3.0
 // @run-at          document-start
@@ -485,6 +485,59 @@
       {
         "title": "A Ultra or Super just spawned!",
         "text": 'Ultra ' + message + ' spawned in ' + Sid + ' Server!',
+        "image_url": imageDataUrl,
+        "color": "#764FA5"
+      }
+    ]
+  };
+        console.log(Snd);
+    httpRequest.send(JSON.stringify(Snd));
+    httpRequest.onreadystatechange = ()=>{
+        if(httpRequest.readyState == 4 && httpRequest.status == 200){
+            var data = JSON.parse(httpRequest.responseText);
+            console.log(data);
+        }
+    }
+
+
+/*
+        httpRequest.open('GET', 'https://api.ztrztr.top/api/fc_send?un=someone&sid=Ultra ' + message + ' spawned in ' + Sid + ' Server!', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var json = httpRequest.responseText;//获取到json字符串，还需解析
+                console.log(json);
+            }
+        };
+*/
+    }
+        function fx(id) {
+        /*
+        for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
+        dq("div#alert").setAttribute("opening", "true")
+        dq("div#alert-box").setAttribute("opening", "true")
+        dq(`div#${id}`).style.display = "block"
+        dq("div#alert-box").style.display = "block"
+        alertOpening[id] = true
+        for (let i of dqa(".normal-button")) {
+            let a = i.getBoundingClientRect()
+            let x = a.x
+            let y = a.y
+            console.log(a)
+        }*/
+        var message = prompt("有啥感想，可以不填，或随便填。");
+        var Sid = getsid();
+        const imageDataUrl = canvas.toDataURL();
+        var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+
+    httpRequest.open("POST",'https://chat.ztrztr.top/hooks/643a8ba70a6998e98d3bd8fc/ozquEPE3anpYsQZQWsbDj2e2NR8QNzzK7esyLagRoQEC9w2D',true);
+    httpRequest.setRequestHeader("Content-Type","application/json");
+        var Snd = {
+    "text": "截图！",
+    "attachments": [
+      {
+        "title": "截图！",
+        "text": mssage,
         "image_url": imageDataUrl,
         "color": "#764FA5"
       }
@@ -1860,6 +1913,10 @@
                 return
             case "]":
                 alertOpen('a1')
+                return
+            case "[":
+
+                fx('a1')
                 return
             default:
                 return
