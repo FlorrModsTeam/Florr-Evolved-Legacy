@@ -33,7 +33,7 @@
 - 提供了一个友好的字体更换入口。
 - Ultra 全服通告（`ctrl+]` 通告）
 - 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
-
+- 说说功能，按 `ctrl+[` 即可发送说说，在 <https://chat.ztrztr.top/channel/Chat> 查看
 
 # 其他分发平台
 Greasyfork：<https://greasyfork.org/zh-CN/scripts/464050-florr-io-evolved>。
