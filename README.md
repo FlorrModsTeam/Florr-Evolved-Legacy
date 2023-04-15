@@ -30,7 +30,7 @@
 - - 更换服号：`ctrl+m`。
 - 重制花瓣再装填动画，可选择关闭。
 - 提供了一个友好的字体更换入口。
-- Ultra 全服通告（`ctrl+]` 通告）
+- Ultra 全服通告（`ctrl+]` 通告，在 <https://chat.ztrztr.top/channel/Ultra-Super-Spawned> 查看）
 - 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
 
 
