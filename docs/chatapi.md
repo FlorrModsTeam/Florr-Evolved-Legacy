@@ -25,3 +25,29 @@
   ]
 }
 ```
+
+## Usage
+Send a POST request to https://chat.ztrztr.top/hooks/[Token], Token private message ztrztr, for example ' https://chat.ztrztr.top/hooks/642904a166a580d8d2c7580c/XkAf4G9yfvEXNLLChLwYvqKoScmv3E8heyLSZkAgPC6cqCjk' is the token of the ultra super generated channel.
+## Data sent
+- '''text'' for the content.
+- ''attachments":[{}]' for the body:
+- - ''title'' is the title.
+- - ''title_link'' is the title link.
+- - ''image_url'' is the URL or base64 encoding of the added image.
+- - '"color"' is the color.
+
+as
+```json
+{
+  "text": "Example message",
+  "attachments": [
+    {
+      "title": "Rocket.Chat",
+      "title_link": "https://rocket.chat",
+      "text": "Rocket.Chat, the best open source chat",
+      "image_url": "https://chat.ztrztr.top/images/integration-attachment-example.png",
+      "color": "#764FA5"
+    }
+  ]
+}
+```
