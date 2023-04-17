@@ -2,7 +2,7 @@
 // @name            Florr.io Evolved
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
-// @version         0.1.1.1
+// @version         0.1.0
 // @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233
 // @license         GPL-3.0
 // @run-at          document-start
@@ -389,12 +389,17 @@
         float: right;
         margin: 2vh 0 0 0.5vw;
     }
+
+
+
+
+    input#file-upload{
+        opacity:0;
+        width:0;
+        height:0;
+    }
     `)
 
-
-    // var div = document.createElement("div");
-    // div.innerHTML = '<iframe style="position:fixed; z-index:999; top:0;" id="idFrame" name="idFrame" src="https://www.baidu.com/Contents/Html/CheckLogin.html" height = "0" width = "0" frameborder="0" scrolling="auto" style = "display:none;visibility:hidden" ></iframe>';
-    // document.body.appendChild(div);
 
 
     const customMapImgHere = {
@@ -411,12 +416,14 @@
     let mapOpacity = 8 //避免js浮点计算bug
 
 
+
     const popup = new class {
         constructor() {
         }
         appear(input1, input2) {
         }
     }
+
 
 
     const toast = new class {
@@ -432,13 +439,16 @@
     }
 
 
+
+
+
     const mobReport = new class {
         constructor() {
             this.detectedMobArray = []
         }
         detect(mobLevel, mobName, timestamp, textColor) {
-            if (this.detectedMobArray.length || timestamp <= this.detectedMobArray[this.detectedMobArray.length - 1] + 2400) { return }
-            if (textColor == "#ffffff" || textColor == "#000000") { return }
+            if (this.detectedMobArray.length || timestamp <= this.detectedMobArray[this.detectedMobArray.length - 1] + 2400) { return false }
+            if (textColor == "#ffffff" || textColor == "#000000") { return false }
             var role = "",
                 color = 0,
                 status = "";
@@ -470,13 +480,84 @@
             console.log("Reported to Discord!");
             this.detectedMobArray.push([mobLevel, mobName, timestamp, textColor])
         }
-        report() {
-            return
+        report(reportContent) {
+            const xhr = createXhr("post", "https://chat.ztrztr.top/hooks/642904a166a580d8d2c7580c/XkAf4G9yfvEXNLLChLwYvqKoScmv3E8heyLSZkAgPC6cqCjk")
+            const sendContent = JSON.stringify(reportContent)
+            console.log(sendContent)
+            xhr.send(sendContent)
+            xhr.onload = () => {
+                if (xhr.status != 200) {
+                    console.log(`状态码 ${xhr.status}`)
+                    return
+                }
+                console.log(xhr.response)
+            }
         }
         getAvailableReportList() {
             return this.detectedMobArray
         }
     }
+
+
+
+
+
+    /**
+     * [js-sha256]{@link https://github.com/emn178/js-sha256}
+     *
+     * @version 0.9.0
+     * @author Chen, Yi-Cyuan [emn178@gmail.com]
+     * @copyright Chen, Yi-Cyuan 2014-2017
+     * @license MIT
+     */
+    !function () { "use strict"; function t(t, i) { i ? (d[0] = d[16] = d[1] = d[2] = d[3] = d[4] = d[5] = d[6] = d[7] = d[8] = d[9] = d[10] = d[11] = d[12] = d[13] = d[14] = d[15] = 0, this.blocks = d) : this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], t ? (this.h0 = 3238371032, this.h1 = 914150663, this.h2 = 812702999, this.h3 = 4144912697, this.h4 = 4290775857, this.h5 = 1750603025, this.h6 = 1694076839, this.h7 = 3204075428) : (this.h0 = 1779033703, this.h1 = 3144134277, this.h2 = 1013904242, this.h3 = 2773480762, this.h4 = 1359893119, this.h5 = 2600822924, this.h6 = 528734635, this.h7 = 1541459225), this.block = this.start = this.bytes = this.hBytes = 0, this.finalized = this.hashed = !1, this.first = !0, this.is224 = t } function i(i, r, s) { var e, n = typeof i; if ("string" === n) { var o, a = [], u = i.length, c = 0; for (e = 0; e < u; ++e)(o = i.charCodeAt(e)) < 128 ? a[c++] = o : o < 2048 ? (a[c++] = 192 | o >> 6, a[c++] = 128 | 63 & o) : o < 55296 || o >= 57344 ? (a[c++] = 224 | o >> 12, a[c++] = 128 | o >> 6 & 63, a[c++] = 128 | 63 & o) : (o = 65536 + ((1023 & o) << 10 | 1023 & i.charCodeAt(++e)), a[c++] = 240 | o >> 18, a[c++] = 128 | o >> 12 & 63, a[c++] = 128 | o >> 6 & 63, a[c++] = 128 | 63 & o); i = a } else { if ("object" !== n) throw new Error(h); if (null === i) throw new Error(h); if (f && i.constructor === ArrayBuffer) i = new Uint8Array(i); else if (!(Array.isArray(i) || f && ArrayBuffer.isView(i))) throw new Error(h) } i.length > 64 && (i = new t(r, !0).update(i).array()); var y = [], p = []; for (e = 0; e < 64; ++e) { var l = i[e] || 0; y[e] = 92 ^ l, p[e] = 54 ^ l } t.call(this, r, s), this.update(p), this.oKeyPad = y, this.inner = !0, this.sharedMemory = s } var h = "input is invalid type", r = "object" == typeof window, s = r ? window : {}; s.JS_SHA256_NO_WINDOW && (r = !1); var e = !r && "object" == typeof self, n = !s.JS_SHA256_NO_NODE_JS && "object" == typeof process && process.versions && process.versions.node; n ? s = global : e && (s = self); var o = !s.JS_SHA256_NO_COMMON_JS && "object" == typeof module && module.exports, a = "function" == typeof define && define.amd, f = !s.JS_SHA256_NO_ARRAY_BUFFER && "undefined" != typeof ArrayBuffer, u = "0123456789abcdef".split(""), c = [-2147483648, 8388608, 32768, 128], y = [24, 16, 8, 0], p = [1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298], l = ["hex", "array", "digest", "arrayBuffer"], d = []; !s.JS_SHA256_NO_NODE_JS && Array.isArray || (Array.isArray = function (t) { return "[object Array]" === Object.prototype.toString.call(t) }), !f || !s.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW && ArrayBuffer.isView || (ArrayBuffer.isView = function (t) { return "object" == typeof t && t.buffer && t.buffer.constructor === ArrayBuffer }); var A = function (i, h) { return function (r) { return new t(h, !0).update(r)[i]() } }, w = function (i) { var h = A("hex", i); n && (h = b(h, i)), h.create = function () { return new t(i) }, h.update = function (t) { return h.create().update(t) }; for (var r = 0; r < l.length; ++r) { var s = l[r]; h[s] = A(s, i) } return h }, b = function (t, i) { var r = eval("require('crypto')"), s = eval("require('buffer').Buffer"), e = i ? "sha224" : "sha256", n = function (i) { if ("string" == typeof i) return r.createHash(e).update(i, "utf8").digest("hex"); if (null === i || void 0 === i) throw new Error(h); return i.constructor === ArrayBuffer && (i = new Uint8Array(i)), Array.isArray(i) || ArrayBuffer.isView(i) || i.constructor === s ? r.createHash(e).update(new s(i)).digest("hex") : t(i) }; return n }, v = function (t, h) { return function (r, s) { return new i(r, h, !0).update(s)[t]() } }, _ = function (t) { var h = v("hex", t); h.create = function (h) { return new i(h, t) }, h.update = function (t, i) { return h.create(t).update(i) }; for (var r = 0; r < l.length; ++r) { var s = l[r]; h[s] = v(s, t) } return h }; t.prototype.update = function (t) { if (!this.finalized) { var i, r = typeof t; if ("string" !== r) { if ("object" !== r) throw new Error(h); if (null === t) throw new Error(h); if (f && t.constructor === ArrayBuffer) t = new Uint8Array(t); else if (!(Array.isArray(t) || f && ArrayBuffer.isView(t))) throw new Error(h); i = !0 } for (var s, e, n = 0, o = t.length, a = this.blocks; n < o;) { if (this.hashed && (this.hashed = !1, a[0] = this.block, a[16] = a[1] = a[2] = a[3] = a[4] = a[5] = a[6] = a[7] = a[8] = a[9] = a[10] = a[11] = a[12] = a[13] = a[14] = a[15] = 0), i) for (e = this.start; n < o && e < 64; ++n)a[e >> 2] |= t[n] << y[3 & e++]; else for (e = this.start; n < o && e < 64; ++n)(s = t.charCodeAt(n)) < 128 ? a[e >> 2] |= s << y[3 & e++] : s < 2048 ? (a[e >> 2] |= (192 | s >> 6) << y[3 & e++], a[e >> 2] |= (128 | 63 & s) << y[3 & e++]) : s < 55296 || s >= 57344 ? (a[e >> 2] |= (224 | s >> 12) << y[3 & e++], a[e >> 2] |= (128 | s >> 6 & 63) << y[3 & e++], a[e >> 2] |= (128 | 63 & s) << y[3 & e++]) : (s = 65536 + ((1023 & s) << 10 | 1023 & t.charCodeAt(++n)), a[e >> 2] |= (240 | s >> 18) << y[3 & e++], a[e >> 2] |= (128 | s >> 12 & 63) << y[3 & e++], a[e >> 2] |= (128 | s >> 6 & 63) << y[3 & e++], a[e >> 2] |= (128 | 63 & s) << y[3 & e++]); this.lastByteIndex = e, this.bytes += e - this.start, e >= 64 ? (this.block = a[16], this.start = e - 64, this.hash(), this.hashed = !0) : this.start = e } return this.bytes > 4294967295 && (this.hBytes += this.bytes / 4294967296 << 0, this.bytes = this.bytes % 4294967296), this } }, t.prototype.finalize = function () { if (!this.finalized) { this.finalized = !0; var t = this.blocks, i = this.lastByteIndex; t[16] = this.block, t[i >> 2] |= c[3 & i], this.block = t[16], i >= 56 && (this.hashed || this.hash(), t[0] = this.block, t[16] = t[1] = t[2] = t[3] = t[4] = t[5] = t[6] = t[7] = t[8] = t[9] = t[10] = t[11] = t[12] = t[13] = t[14] = t[15] = 0), t[14] = this.hBytes << 3 | this.bytes >>> 29, t[15] = this.bytes << 3, this.hash() } }, t.prototype.hash = function () { var t, i, h, r, s, e, n, o, a, f = this.h0, u = this.h1, c = this.h2, y = this.h3, l = this.h4, d = this.h5, A = this.h6, w = this.h7, b = this.blocks; for (t = 16; t < 64; ++t)i = ((s = b[t - 15]) >>> 7 | s << 25) ^ (s >>> 18 | s << 14) ^ s >>> 3, h = ((s = b[t - 2]) >>> 17 | s << 15) ^ (s >>> 19 | s << 13) ^ s >>> 10, b[t] = b[t - 16] + i + b[t - 7] + h << 0; for (a = u & c, t = 0; t < 64; t += 4)this.first ? (this.is224 ? (e = 300032, w = (s = b[0] - 1413257819) - 150054599 << 0, y = s + 24177077 << 0) : (e = 704751109, w = (s = b[0] - 210244248) - 1521486534 << 0, y = s + 143694565 << 0), this.first = !1) : (i = (f >>> 2 | f << 30) ^ (f >>> 13 | f << 19) ^ (f >>> 22 | f << 10), r = (e = f & u) ^ f & c ^ a, w = y + (s = w + (h = (l >>> 6 | l << 26) ^ (l >>> 11 | l << 21) ^ (l >>> 25 | l << 7)) + (l & d ^ ~l & A) + p[t] + b[t]) << 0, y = s + (i + r) << 0), i = (y >>> 2 | y << 30) ^ (y >>> 13 | y << 19) ^ (y >>> 22 | y << 10), r = (n = y & f) ^ y & u ^ e, A = c + (s = A + (h = (w >>> 6 | w << 26) ^ (w >>> 11 | w << 21) ^ (w >>> 25 | w << 7)) + (w & l ^ ~w & d) + p[t + 1] + b[t + 1]) << 0, i = ((c = s + (i + r) << 0) >>> 2 | c << 30) ^ (c >>> 13 | c << 19) ^ (c >>> 22 | c << 10), r = (o = c & y) ^ c & f ^ n, d = u + (s = d + (h = (A >>> 6 | A << 26) ^ (A >>> 11 | A << 21) ^ (A >>> 25 | A << 7)) + (A & w ^ ~A & l) + p[t + 2] + b[t + 2]) << 0, i = ((u = s + (i + r) << 0) >>> 2 | u << 30) ^ (u >>> 13 | u << 19) ^ (u >>> 22 | u << 10), r = (a = u & c) ^ u & y ^ o, l = f + (s = l + (h = (d >>> 6 | d << 26) ^ (d >>> 11 | d << 21) ^ (d >>> 25 | d << 7)) + (d & A ^ ~d & w) + p[t + 3] + b[t + 3]) << 0, f = s + (i + r) << 0; this.h0 = this.h0 + f << 0, this.h1 = this.h1 + u << 0, this.h2 = this.h2 + c << 0, this.h3 = this.h3 + y << 0, this.h4 = this.h4 + l << 0, this.h5 = this.h5 + d << 0, this.h6 = this.h6 + A << 0, this.h7 = this.h7 + w << 0 }, t.prototype.hex = function () { this.finalize(); var t = this.h0, i = this.h1, h = this.h2, r = this.h3, s = this.h4, e = this.h5, n = this.h6, o = this.h7, a = u[t >> 28 & 15] + u[t >> 24 & 15] + u[t >> 20 & 15] + u[t >> 16 & 15] + u[t >> 12 & 15] + u[t >> 8 & 15] + u[t >> 4 & 15] + u[15 & t] + u[i >> 28 & 15] + u[i >> 24 & 15] + u[i >> 20 & 15] + u[i >> 16 & 15] + u[i >> 12 & 15] + u[i >> 8 & 15] + u[i >> 4 & 15] + u[15 & i] + u[h >> 28 & 15] + u[h >> 24 & 15] + u[h >> 20 & 15] + u[h >> 16 & 15] + u[h >> 12 & 15] + u[h >> 8 & 15] + u[h >> 4 & 15] + u[15 & h] + u[r >> 28 & 15] + u[r >> 24 & 15] + u[r >> 20 & 15] + u[r >> 16 & 15] + u[r >> 12 & 15] + u[r >> 8 & 15] + u[r >> 4 & 15] + u[15 & r] + u[s >> 28 & 15] + u[s >> 24 & 15] + u[s >> 20 & 15] + u[s >> 16 & 15] + u[s >> 12 & 15] + u[s >> 8 & 15] + u[s >> 4 & 15] + u[15 & s] + u[e >> 28 & 15] + u[e >> 24 & 15] + u[e >> 20 & 15] + u[e >> 16 & 15] + u[e >> 12 & 15] + u[e >> 8 & 15] + u[e >> 4 & 15] + u[15 & e] + u[n >> 28 & 15] + u[n >> 24 & 15] + u[n >> 20 & 15] + u[n >> 16 & 15] + u[n >> 12 & 15] + u[n >> 8 & 15] + u[n >> 4 & 15] + u[15 & n]; return this.is224 || (a += u[o >> 28 & 15] + u[o >> 24 & 15] + u[o >> 20 & 15] + u[o >> 16 & 15] + u[o >> 12 & 15] + u[o >> 8 & 15] + u[o >> 4 & 15] + u[15 & o]), a }, t.prototype.toString = t.prototype.hex, t.prototype.digest = function () { this.finalize(); var t = this.h0, i = this.h1, h = this.h2, r = this.h3, s = this.h4, e = this.h5, n = this.h6, o = this.h7, a = [t >> 24 & 255, t >> 16 & 255, t >> 8 & 255, 255 & t, i >> 24 & 255, i >> 16 & 255, i >> 8 & 255, 255 & i, h >> 24 & 255, h >> 16 & 255, h >> 8 & 255, 255 & h, r >> 24 & 255, r >> 16 & 255, r >> 8 & 255, 255 & r, s >> 24 & 255, s >> 16 & 255, s >> 8 & 255, 255 & s, e >> 24 & 255, e >> 16 & 255, e >> 8 & 255, 255 & e, n >> 24 & 255, n >> 16 & 255, n >> 8 & 255, 255 & n]; return this.is224 || a.push(o >> 24 & 255, o >> 16 & 255, o >> 8 & 255, 255 & o), a }, t.prototype.array = t.prototype.digest, t.prototype.arrayBuffer = function () { this.finalize(); var t = new ArrayBuffer(this.is224 ? 28 : 32), i = new DataView(t); return i.setUint32(0, this.h0), i.setUint32(4, this.h1), i.setUint32(8, this.h2), i.setUint32(12, this.h3), i.setUint32(16, this.h4), i.setUint32(20, this.h5), i.setUint32(24, this.h6), this.is224 || i.setUint32(28, this.h7), t }, i.prototype = new t, i.prototype.finalize = function () { if (t.prototype.finalize.call(this), this.inner) { this.inner = !1; var i = this.array(); t.call(this, this.is224, this.sharedMemory), this.update(this.oKeyPad), this.update(i), t.prototype.finalize.call(this) } }; var B = w(); B.sha256 = B, B.sha224 = w(!0), B.sha256.hmac = _(), B.sha224.hmac = _(!0), o ? module.exports = B : (s.sha256 = B.sha256, s.sha224 = B.sha224, a && define(function () { return B })) }();
+
+
+
+
+
+    //https://greasyfork.org/zh-CN/scripts/14146
+    //要处理的 event 列表
+    const hook_eventNames = ["contextmenu", "select", "selectstart", "copy", "cut", "dragstart", "keydown", "keypress", "keyup"];
+
+    //储存被 Hook 的函数
+    let EventTarget_addEventListener = EventTarget.prototype.addEventListener;
+    let document_addEventListener = document.addEventListener;
+    let Event_preventDefault = Event.prototype.preventDefault;
+
+    //Hook addEventListener
+    function addEventListener(type, listener, useCapture) {
+        let _addEventListener = this === document ? document_addEventListener : EventTarget_addEventListener;
+        if (hook_eventNames.indexOf(type) >= 0) {
+            _addEventListener.apply(this, [type, (e) => { return true }, useCapture]);
+        }
+        else {
+            _addEventListener.apply(this, arguments);
+        }
+    }
+
+    function eventHookStart() {
+        // hook addEventListener
+        EventTarget.prototype.addEventListener = addEventListener;
+        document.addEventListener = addEventListener;
+
+        // hook preventDefault
+        Event.prototype.preventDefault = function () {
+            if (hook_eventNames.indexOf(this.type) < 0) {
+                Event_preventDefault.apply(this, arguments);
+            }
+        };
+    }
+
+    function eventHookEnd() {
+        EventTarget.prototype.addEventListener = EventTarget_addEventListener;
+        document.addEventListener = document_addEventListener;
+        Event.prototype.preventDefault = Event_preventDefault;
+    }
+
+
+
+
 
 
     function dq(query) {
@@ -488,111 +569,13 @@
 
     let alertOpening = new Array()
     function alertOpen(id) {
-        /*
         for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
         dq("div#alert").setAttribute("opening", "true")
         dq("div#alert-box").setAttribute("opening", "true")
         dq(`div#${id}`).style.display = "block"
         dq("div#alert-box").style.display = "block"
         alertOpening[id] = true
-        for (let i of dqa(".normal-button")) {
-            let a = i.getBoundingClientRect()
-            let x = a.x
-            let y = a.y
-            console.log(a)
-        }*/
-        var message = prompt("哪个ultra？请填写等级+ultra，比如说 U M28 或 S ztr。请务必如实回答！");
-        var Sid = getsid();
-        const imageDataUrl = canvas.toDataURL();
-        var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
-
-        httpRequest.open("POST",'https://chat.ztrztr.top/hooks/642904a166a580d8d2c7580c/XkAf4G9yfvEXNLLChLwYvqKoScmv3E8heyLSZkAgPC6cqCjk',true);
-        httpRequest.setRequestHeader("Content-Type","application/json");
-        var Snd = {
-            "text": "Ultra or Super Spawned!",
-            "attachments": [
-                {
-                    "title": "A Ultra or Super just spawned!",
-                    "text": 'Ultra ' + message + ' spawned in ' + Sid + ' Server!',
-                    "image_url": imageDataUrl,
-                    "color": "#764FA5"
-                }
-            ]
-        };
-        console.log(Snd);
-        httpRequest.send(JSON.stringify(Snd));
-        httpRequest.onreadystatechange = ()=>{
-            if(httpRequest.readyState == 4 && httpRequest.status == 200){
-                var data = JSON.parse(httpRequest.responseText);
-                console.log(data);
-            }
-        }
-
-
-        /*
-        httpRequest.open('GET', 'https://api.ztrztr.top/api/fc_send?un=someone&sid=Ultra ' + message + ' spawned in ' + Sid + ' Server!', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
-        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-                var json = httpRequest.responseText;//获取到json字符串，还需解析
-                console.log(json);
-            }
-        };
-*/
-    }
-    function fx(id) {
-        /*
-        for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
-        dq("div#alert").setAttribute("opening", "true")
-        dq("div#alert-box").setAttribute("opening", "true")
-        dq(`div#${id}`).style.display = "block"
-        dq("div#alert-box").style.display = "block"
-        alertOpening[id] = true
-        for (let i of dqa(".normal-button")) {
-            let a = i.getBoundingClientRect()
-            let x = a.x
-            let y = a.y
-            console.log(a)
-        }*/
-        var message = prompt("有啥感想，可以不填，或随便填。");
-        var Sid = getsid();
-        const imageDataUrl = canvas.toDataURL();
-        var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
-
-        httpRequest.open("POST",'https://chat.ztrztr.top/hooks/643a8ba70a6998e98d3bd8fc/ozquEPE3anpYsQZQWsbDj2e2NR8QNzzK7esyLagRoQEC9w2D',true);
-        httpRequest.setRequestHeader("Content-Type","application/json");
-        var Snd = {
-            "text": "截图！",
-            "attachments": [
-                {
-                    "title": "截图！",
-                    "text": message,
-                    "image_url": imageDataUrl,
-                    "color": "#764FA5"
-                }
-            ]
-        };
-
-        httpRequest.send(JSON.stringify(Snd));
-        httpRequest.onreadystatechange = ()=>{
-            if(httpRequest.readyState == 4 && httpRequest.status == 200){
-                var data = JSON.parse(httpRequest.responseText);
-                console.log("shuoshuo was send to OIChat");
-
-            }
-        }
-
-
-        /*
-        httpRequest.open('GET', 'https://api.ztrztr.top/api/fc_send?un=someone&sid=Ultra ' + message + ' spawned in ' + Sid + ' Server!', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
-        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-                var json = httpRequest.responseText;//获取到json字符串，还需解析
-                console.log(json);
-            }
-        };
-*/
+        eventHookStart()
     }
     function alertClose(id) {
         for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
@@ -607,9 +590,86 @@
             }, 500)
         }
         else { dq(`div#${id}`).style.display = "none" }
+        eventHookEnd()
     }
 
 
+
+
+
+    function dropImgIntoPage(e) {
+        e.preventDefault()
+        imgToBase64(e.dataTransfer.files, (value) => { prepareReportContent.screenshot = value })
+    }
+
+    function imgToBase64(fileList, execution) {
+        const fr = new FileReader();
+        fr.readAsDataURL(fileList[0]);
+        fr.addEventListener("loadend", () => { execution(fr.result) })
+    }
+
+    function collectUserData() {
+        const userServerInfo = getUserServerInfo()
+        if (!userServerInfo || !centraliaServerInfo) { return }
+        const serverRegion = userServerInfo[0]
+        const serverId = userServerInfo[1]
+        const regionCentraliaServerID = centraliaServerInfo[serverRegion].serverId
+        const mapNumber = userServerInfo[2]
+        const m28nApiHost = userServerInfo[3]
+        const timestamp = getCurrentTimestamp().toString()
+        const cp6PlayerIdHash = sha256(sha256(localStorage.getItem('cp6_player_id')))
+        return {
+            "serverRegion": serverRegion,
+            "serverId": serverId,
+            "regionCentraliaServerID": regionCentraliaServerID,
+            "mapNumber": mapNumber,
+            "m28nApiHost": m28nApiHost,
+            "timestamp": timestamp,
+            "cp6PlayerIdHash": cp6PlayerIdHash
+        }
+    }
+
+    const prepareReportContent = new class {
+        constructor() {
+            this.screenshot = ""
+        }
+        start() {
+            const mobLevel = dq("input#level").value
+            const mobName = dq("input#name").value
+            const screenshot = this.screenshot
+            const userData = collectUserData()
+
+            if (!mobLevel || !mobName || !screenshot || !userData) {
+                toast.appear("数据缺失，提交失败")
+                return
+            }
+
+            const serverRegion = userData.serverRegion
+            const serverId = userData.serverId
+            const regionCentraliaServerID = userData.regionCentraliaServerID
+            const mapNumber = userData.mapNumber
+            const m28nApiHost = userData.m28nApiHost
+            const timestamp = userData.timestamp
+            const cp6PlayerIdHash = userData.cp6PlayerIdHash
+            mobReport.report({
+                "attachments": [{
+                    "text": `
+=====MOB SPAWNED REPORT/生物生成报告=====\n\n
+Mob Level/生物等级: ${mobLevel}\n\n
+Mob Name/生物名称: ${mobName}\n\n
+Server Region/服务器地域: ${serverRegion}\n\n
+Server ID/服务器ID: ${serverId}\n\n
+This Region Centralia Server ID/此地域中心之地服务器ID: ${regionCentraliaServerID}\n\n
+Map Number/地图编号: ${mapNumber}\n\n
+M28N Api Host/M28N API主机: ${m28nApiHost}\n\n
+Timestamp/时间戳: ${timestamp}\n\n
+Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
+                    `,
+                    "image_url": screenshot
+                }]
+            })
+        }
+    }
 
     const popupDiv = document.createElement("div")
     popupDiv.innerHTML = `
@@ -621,8 +681,9 @@
                     <div class="text">当您遇到 Ultra/Super 在聊天栏提示生成的情况，可以在此处报告</div>
                 </div>
                 <div class="interaction">
-                    <input id="level"  name="level" placeholder="level">
-                    <input id="name"  name="name" placeholder="name">
+                    <input id="level" type="text" name="level" placeholder="level">
+                    <input id="name" type="text" name="name" placeholder="name">
+                    <input id="file-upload" type="file" name="file-upload">
                     <button class="normal-button" id="submit">
                         <p>提交</p>
                     </button>
@@ -635,7 +696,15 @@
     </div>
     `
     document.body.appendChild(popupDiv)
-    dq(".normal-button#submit").addEventListener("click", () => { mobReport.report() })
+    dq("#a1").addEventListener("drop", (e) => { dropImgIntoPage(e) }, false)
+    dq("#a1").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
+    dq("#a1").addEventListener("dragover", (e) => { e.preventDefault() }, false)
+    dq("#a1").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
+    dq("#alert").addEventListener("drop", (e) => { e.preventDefault() }, false)
+    dq("#alert").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
+    dq("#alert").addEventListener("dragover", (e) => { e.preventDefault() }, false)
+    dq("#alert").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
+    dq(".normal-button#submit").addEventListener("click", () => { prepareReportContent.start() })
     dq(".normal-button#cancel").addEventListener("click", () => { alertClose(dq(".normal-button#cancel").parentElement.parentElement.id) })
 
 
@@ -669,7 +738,7 @@
 
     function reportMobSpawnToApi(rarity, name, serverRegion) {
         const str = `${rarity} ${name} spawned in server ${serverRegion}!`
-        const xhr = createXhr(`${reportMobSpawnApi}${str}`)
+        const xhr = createXhr("get", `${reportMobSpawnApi}${str}`)
         xhr.send()
         xhr.onload = () => {
             if (xhr.status != 200) {
@@ -683,14 +752,15 @@
 
     function reportMobSpawnPrompt() {
         const test = prompt("请输入对应生物的译名或英文名")
-        }
+    }
 
 
-    function createXhr(url) {
+    function createXhr(method, url) {
         const xhr = new XMLHttpRequest()
-        xhr.open("get", url, true) //method, url, async[可选，默认为true，表示要异步执行操作], user[可选，默认为null，用于认证用途], password[可选，默认为null，用于认证用途]
+        xhr.open(method, url, true) //method, url, async[可选，默认为true，表示要异步执行操作], user[可选，默认为null，用于认证用途], password[可选，默认为null，用于认证用途]
+        xhr.setRequestHeader("Content-Type", "application/json")
         xhr.responseType = "json"
-        xhr.withCredentials = true //指定跨域的请求是否应该使用证书
+        xhr.withCredentials = false //指定跨域的请求是否应该使用证书
         return xhr
     }
 
@@ -699,12 +769,12 @@
         fetch(`https://api.n.m28.io/endpoint/florrio-map-1-green/findEach/`)
             .then((response) => response.json())
             .then((data) => {
-            let info = {}
-            info["NA"] = { "serverId": `${data.servers["vultr-miami"].id}`, "mapNumber": 1 }
-            info["EU"] = { "serverId": `${data.servers["vultr-frankfurt"].id}`, "mapNumber": 1 }
-            info["AS"] = { "serverId": `${data.servers["vultr-tokyo"].id}`, "mapNumber": 1 }
-            centraliaServerInfo = info
-        })
+                let info = {}
+                info["NA"] = { "serverId": `${data.servers["vultr-miami"].id}`, "mapNumber": 1 }
+                info["EU"] = { "serverId": `${data.servers["vultr-frankfurt"].id}`, "mapNumber": 1 }
+                info["AS"] = { "serverId": `${data.servers["vultr-tokyo"].id}`, "mapNumber": 1 }
+                centraliaServerInfo = info
+            })
     }
 
 
@@ -712,14 +782,14 @@
         fetch(`https://api.n.m28.io/endpoint/florrio-map-${mapNumber}-green/findEach/`)
             .then((response) => response.json())
             .then((data) => {
-            let info = {}
-            info[`${data.servers["vultr-miami"].id}`] = { "serverRegion": "NA", "mapNumber": mapNumber }
-            info[`${data.servers["vultr-frankfurt"].id}`] = { "serverRegion": "EU", "mapNumber": mapNumber }
-            info[`${data.servers["vultr-tokyo"].id}`] = { "serverRegion": "AS", "mapNumber": mapNumber }
-            Object.assign(serversInfoTemp, info)
-            seversInfoReadyCount++
-            if (seversInfoReadyCount == serversCount) { serversInfo = serversInfoTemp }
-        })
+                let info = {}
+                info[`${data.servers["vultr-miami"].id}`] = { "serverRegion": "NA", "mapNumber": mapNumber }
+                info[`${data.servers["vultr-frankfurt"].id}`] = { "serverRegion": "EU", "mapNumber": mapNumber }
+                info[`${data.servers["vultr-tokyo"].id}`] = { "serverRegion": "AS", "mapNumber": mapNumber }
+                Object.assign(serversInfoTemp, info)
+                seversInfoReadyCount++
+                if (seversInfoReadyCount == serversCount) { serversInfo = serversInfoTemp }
+            })
     }
 
 
@@ -734,32 +804,25 @@
     for (let i = serversCount; i; i--) { getSpecifiedMapServerInfo(i - 1) }
 
 
-    function getUserServerId() {
+    function getUserServerInfo() {
         if (typeof (m28nApiUrl) == "undefined") {
             toast.appear("请先连接至 Florr.io 的服务器")
-            return
+            return false
         }
         const userServerId = m28nApiUrl.slice(6, 9)
         const userServerInfo = serversInfo[userServerId]
         if (typeof (userServerInfo) == "undefined") {
             toast.appear("正在初始化，请稍后")
-            return
+            return false
         }
-        toast.appear(`服务器连接正常<br>服务器地域: ${userServerInfo["serverRegion"]}&nbsp&nbsp服务器ID: ${userServerId}&nbsp&nbsp地图编号: ${userServerInfo["mapNumber"]}<br>${m28nApiUrl.slice(6, -1)}`)
-        return userServerInfo["serverRegion"]
+        return [userServerInfo["serverRegion"], userServerId, userServerInfo["mapNumber"], m28nApiUrl.slice(6, -1)]
     }
-    function getsid() {
-        if (typeof (m28nApiUrl) == "undefined") {
-            toast.appear("请先连接至 Florr.io 的服务器")
-            return
-        }
-        const userServerId = m28nApiUrl.slice(6, 9)
-        const userServerInfo = serversInfo[userServerId]
-        if (typeof (userServerInfo) == "undefined") {
-            toast.appear("正在初始化，请稍后")
-            return
-        }
-        return userServerId;
+
+
+    function toastUserServerInfo() {
+        const userServerInfo = getUserServerInfo()
+        if (!userServerInfo) { return }
+        toast.appear(`服务器连接正常<br>服务器地域: ${userServerInfo[0]}&nbsp&nbsp服务器ID: ${userServerInfo[1]}&nbsp&nbsp地图编号: ${userServerInfo[2]}<br>${userServerInfo[3]}`)
     }
 
 
@@ -782,7 +845,7 @@
 
     if (typeof (GM_getValue("customFont")) == "undefined") { //可在 储存 选项卡中更改字体与字重
         const defaultCustomFont = {
-            fontFamily: "Ubuntu",
+            fontFamily: "Ubuntu, Microsoft YaHei",
             fontWeight: "bold",
             fontSizeMin: 14
         }
@@ -1743,20 +1806,20 @@
         if (typeof (translate[text]) == 'string') { return translate[text] }
         //preventTooFastLog(textColor)
         switch (true) {
-                //1.2% success chance
+            //1.2% success chance
             case (/\S+% success chance/.test(text)): {
                 const probability = text.match(/\S+(?=% success chance)/);
                 return `成功率 ${probability}%`;
             }
 
-                //Store will change in 10 hours.
+            //Store will change in 10 hours.
             case (/Store will change in [0-9][0-9]?[0-9]? \w\w\w\w\w?\w?\w?\./.test(text)): {
                 const timeNum = text.match(/(?<=Store will change in )[0-9]?[0-9]?[0-9]?(?=\s\w\w\w\w\w?\w?\w?\.)/)[0];
                 const timeUnit = text.match(/(?<=Store will change in [0-9]?[0-9]?[0-9]?\s)\w\w\w\w\w?\w?\w?(?=\.)/)[0];
                 return `货架将在 ${timeNum} ${getTranslate(timeUnit)}后刷新`;
             }
 
-                //The Super Termite Overmind was defeated by you!
+            //The Super Termite Overmind was defeated by you!
             case (/The \w\w\w\w\w?\w?\w?\w?\w? .+ was defeated by .+!/.test(text)): {
                 const mobLevel = text.match(/(?<=The\s)\w\w\w\w\w?\w?\w?\w?\w?(?=\s)/)[0];
                 const mobName = text.match(/(?<=The\s\w\w\w\w\w?\w?\w?\w?\w?\s).+(?=\swas)/)[0];
@@ -1764,19 +1827,19 @@
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已被 ${playerName} 击败！`;
             }
 
-                //A Super Termite Overmind has spawned!
+            //A Super Termite Overmind has spawned!
             case (/An? \w\w\w\w\w .+ has spawned!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/)[0];
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned!)/)[0];
-                mobReport.detect(mobLevel, mobName, getCurrentTimestamp(), textColor)
+                //mobReport.detect(mobLevel, mobName, getCurrentTimestamp(), textColor)
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在地图中生成！`;
             }
 
-                //A Super Termite Overmind has spawned somewhere!
+            //A Super Termite Overmind has spawned somewhere!
             case (/An? \w\w\w\w\w .+ has spawned somewhere!/.test(text)): {
                 const mobLevel = text.match(/(?<=An?\s)\w\w\w\w\w(?=\s)/)[0];
                 const mobName = text.match(/(?<=An?\s\w\w\w\w\w\s).+(?= has spawned somewhere!)/)[0];
-                mobReport.detect(mobLevel, mobName, getCurrentTimestamp(), textColor)
+                //mobReport.detect(mobLevel, mobName, getCurrentTimestamp(), textColor)
                 return `${getTranslate(mobLevel)} ${getTranslate(mobName)} 已在某个地图中生成！`;
             }
         }
@@ -1877,7 +1940,7 @@
         //重写字符描边函数
         prototype.strokeText = function (text, x, y) {
             const newFontSize = getBlurFontSize(this.font);
-            //            this.font = getApplicableFontStr(newFontSize);
+            this.font = getApplicableFontStr(newFontSize);
             //alertTargetStr(text, "Flower Health");
             //preventTooFastLog(text, x, y);
             return this.rewriteStrokeText(getTranslate(text, this.fillStyle), x, y);
@@ -1904,7 +1967,6 @@
         onkeydownFunction(e) //当 window.onkeydown 已有其他代码需要执行时，先让其他代码执行
         switch (e.key) {
             case '"': //ctrl+shift+'
-                console.log("map");
                 if (!e.ctrlKey) { return }
                 if (mapOpening) {
                     mapOpening = false
@@ -1932,14 +1994,10 @@
                     mapImgElement.style.opacity = `${mapOpacity / 10}`
                 }
                 return
-            case "p":
-                if (!e.ctrlKey) { return }
-                getUserServerId()
+            case "Tab":
+                toastUserServerInfo()
                 console.log(mobReport.getAvailableReportList())
                 return
-            case "Tab":
-                getUserServerId()
-                console.log(mobReport.getAvailableReportList())
             case "l":
                 if (!e.ctrlKey) { return }
                 changeServerByRegion()
@@ -1949,11 +2007,17 @@
                 changeServerById()
                 return
             case "]":
+                if (!e.ctrlKey) { return }
                 alertOpen('a1')
-                return
-            case "[":
-
-                fx('a1')
+                /*
+                预期行为：
+                1.用户按下快捷键
+                2.弹出上传窗口，Event Hook Start
+                3.用户填写信息并添加图片文件
+                4.后台收集服务器地域、服务器ID、地图编号、api host、用户cp6 Hash、时间戳
+                5.通过xhr上传
+                6.依据返回判断是否已成功上传，Event Hook End
+                */
                 return
             default:
                 return
