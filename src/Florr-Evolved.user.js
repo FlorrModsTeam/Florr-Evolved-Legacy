@@ -572,12 +572,13 @@
                 }
             ]
         };
-        console.log(Snd);
+
         httpRequest.send(JSON.stringify(Snd));
         httpRequest.onreadystatechange = ()=>{
             if(httpRequest.readyState == 4 && httpRequest.status == 200){
                 var data = JSON.parse(httpRequest.responseText);
-                console.log(data);
+                console.log("shuoshuo was send to OIChat");
+
             }
         }
 
