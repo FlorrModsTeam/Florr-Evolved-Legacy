@@ -567,7 +567,7 @@
         return document.querySelectorAll(query)
     }
 
-    let alertOpening = new Array()
+    let alertOpening = []
     function alertOpen(id) {
         for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
         dq("div#alert").setAttribute("opening", "true")
@@ -598,8 +598,15 @@
 
 
     function dropImgIntoPage(e) {
+        if (dq("div#alert-box").getAttribute("opening") != "true") { return }
         e.preventDefault()
         imgToBase64(e.dataTransfer.files, (value) => { prepareReportContent.screenshot = value })
+    }
+
+    function pasteImgIntoPage(e) {
+        if (dq("div#alert-box").getAttribute("opening") != "true") { return }
+        e.preventDefault()
+        imgToBase64(e.clipboardData.files, (value) => { prepareReportContent.screenshot = value })
     }
 
     function imgToBase64(fileList, execution) {
@@ -678,11 +685,11 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
             <div id="a1">
                 <div class="describe">
                     <div class="title">报告生物生成</div>
-                    <div class="text">当您遇到 Ultra/Super 在聊天栏提示生成的情况，可以在此处报告</div>
+                    <div class="text">当您遇到 Ultra/Super 生物生成，可以在此处报告，报告内容将发送至 chat.ztrztr.top</div>
                 </div>
                 <div class="interaction">
-                    <input id="level" type="text" name="level" placeholder="level">
-                    <input id="name" type="text" name="name" placeholder="name">
+                    <input id="level" type="text" name="level" placeholder="Mob Level/生物等级">
+                    <input id="name" type="text" name="name" placeholder="Mob Name/生物名称">
                     <input id="file-upload" type="file" name="file-upload">
                     <button class="normal-button" id="submit">
                         <p>提交</p>
@@ -704,6 +711,7 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
     dq("#alert").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
     dq("#alert").addEventListener("dragover", (e) => { e.preventDefault() }, false)
     dq("#alert").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
+    dq("html").addEventListener('paste', (e) => { pasteImgIntoPage(e) }, false)
     dq(".normal-button#submit").addEventListener("click", () => { prepareReportContent.start() })
     dq(".normal-button#cancel").addEventListener("click", () => { alertClose(dq(".normal-button#cancel").parentElement.parentElement.id) })
 
