@@ -895,8 +895,8 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
         'Loading...': '加载中...',
         'Account': '账号',
         'Changelog': '更新日志',
-        'Join our Discord community!': '加入我们的Discord社区！',
-        '加入我们的QQ群!': '加入我们的QQ群！',
+        'Join our Discord community!': '加入我们的Discord社区!',
+        '加入我们的QQ群!': '加入我们的QQ群!',
 
 
 
@@ -915,9 +915,10 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
         'Credits': '荣誉墙',
         'Special Thanks': '特别鸣谢',
         'Made by Matheus Valadares': '制作: Matheus Valadares',
-        'Some icons by Lorc Skoll from game-icons.net': '部分图标: Lorc Skoll 来自 game-icons.net',
+        'Some icons by Lorc & Skoll from game-': '部分图标: Lorc & Skoll 来自',
+        'icons.net': 'game-icons.net',
         'Some icons from twemoji.twitter.com': '部分图标: twemoji.twitter.com',
-        'Some tiles by kenney.nl': '部分材质贴图: kenney.nl',
+        'Some tiles by kenney.nl': '部分纹理贴图: kenney.nl',
 
         'Privacy Policy': '隐私策略',
 
@@ -931,6 +932,8 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
         'Shop': '商店',
         'Today\'s offers:': '今日售卖',
         'You gain stars as you watch ads, or you can': '您可以在看广告时获得星星，',
+        'You gain stars as you watch ads as soon as you': '只要您获得第一个传奇花瓣，',
+        'collect your first legendary petal, or you can': '您就可以在看广告时获得星星；',
         'buy some by clicking the number on the right.': '也可以点击右边的数字购买一些。',
         'I have too much money': '我有超级多的钱',
         'In case of any issues with your purchase,': '如果您的购买过程出现任何问题，',
@@ -977,39 +980,39 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
 
 
         //用户界面-地图名称
-        'Centralia': '花园(主城)',
-        'Centralia Fields 1': '花园1区(石头)',
-        'Centralia Fields 2': '花园2区(下水道)',
-        'Centralia Fields 3': '花园3区(瓢虫)',
-        'Centralia Fields 4': '花园4区(断桥)',
-        'Centralia Fields 5': '花园5区(蜈蚣)',
-        'Centralia Fields 6': '花园6区(黄蜂)',
-        'Centralia Fields 7': '花园7区(蒲公英)',
-        'Centralia Maze': '森特罗莉亚-迷宫',
+        'Centralia': '中心之地',
+        'Centralia Fields 1': '后花园 1 (石头)',
+        'Centralia Fields 2': '后花园 2',
+        'Centralia Fields 3': '后花园 3 (瓢虫)',
+        'Centralia Fields 4': '后花园 4',
+        'Centralia Fields 5': '后花园 5 (蜈蚣)',
+        'Centralia Fields 6': '后花园 6 (黄蜂)',
+        'Centralia Fields 7': '后花园 7 (蒲公英)',
+        'Centralia Maze': '后花园迷宫',
 
-        'Centralia Sewers 1': '下水道1区(飞蛾)',
-        'Centralia Sewers 2': '下水道2区(蟑螂)',
-        'Centralia Sewers 3': '下水道3区(苍蝇)',
-        'Centralia Sewers 4': '下水道4区(蜘蛛)',
+        'Centralia Sewers 1': '后花园下水道 1 (飞蛾)',
+        'Centralia Sewers 2': '后花园下水道 2 (蟑螂)',
+        'Centralia Sewers 3': '后花园下水道 3 (苍蝇)',
+        'Centralia Sewers 4': '后花园下水道 4 (蜘蛛)',
 
-        'Centralia Beach': '花园-海滩',
-        'East Waters 1': '东海1区',
-        'East Waters 2': '东海2区',
-        'East Waters 3': '东海3区-迷宫',
-        'East Waters 4': '东海4区(贝壳)',
-        'Jellyfish Fields': '水母区(水母)',
-        'East Waters 6': '东海6区(水蛭)',
-        'Crab Kingdom': '螃蟹王国(泡泡&螃蟹)',
+        'Centralia Beach': '后花园海滩',
+        'East Waters 1': '东部水域 1',
+        'East Waters 2': '东部水域 2',
+        'East Waters 3': '东部水域 3',
+        'East Waters 4': '东部水域 4 (贝壳)',
+        'East Waters 6': '东部水域 6 (水蛭)',
+        'Jellyfish Fields': '水母之地 (水母)',
+        'Crab Kingdom': '螃蟹王国 (泡泡&螃蟹)',
 
-        'South Desert 1': '沙漠南部1区(沙尘暴)',
-        'South Desert 2': '沙漠南部2区(火蚁狱)',
-        'South Desert 3': '沙漠南部3区(仙人掌)',
-        'South Desert 4': '沙漠南部4区(闪瓢虫)',
-        'South Desert 5': '沙漠南部5区(甲虫)',
+        'South Desert 1': '南部沙漠 1 (沙尘暴)',
+        'South Desert 2': '南部沙漠 2',
+        'South Desert 3': '南部沙漠 3 (仙人掌)',
+        'South Desert 4': '南部沙漠 4 (闪亮瓢虫)',
+        'South Desert 5': '南部沙漠 5 (甲虫)',
 
-        'Ant Hell 1': '火蚁狱(火蚁后)',
-        'Ant Hell 2': '黑蚁狱(黑蚁后)',
-        'Ant Hell 3': '白蚁狱(白蚁领主)',
+        'Ant Hell 1': '火蚁地狱 (火蚁后)',
+        'Ant Hell 2': '黑蚁地狱 (黑蚁后)',
+        'Ant Hell 3': '白蚁地狱 (白蚁领主)',
 
 
 
@@ -1028,11 +1031,6 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
         //花瓣详细介绍
         'Air': '空气',
         'It\'s literally nothing.': '空白，可占据卡槽。',
-
-
-
-        'Mark': '黑暗标记',
-        'A dark mark that binds itself to a fallen soul.': '把死花送到地狱。',
 
 
 
@@ -1321,7 +1319,7 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
 
         'Stick': '树枝',
         'Mysterious Stick': '神秘的树枝',
-        'A mysterious stick that summons the forces of the wind.': '这个神秘的树枝可以召唤风的力量（生成沙尘暴）',
+        'A mysterious stick that summons the forces of the wind.': '这个神秘的树枝可以召唤风的力量来生成沙尘暴。',
         'Spawn: ': '生成：',
 
 
@@ -1333,7 +1331,7 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
 
         'Third Eye': '第三只眼',
         'Allows your flower to expand your petals further out.': '能使装备的花瓣进一步张开，攻击距离更远。',
-        'Does not stack.': '花瓣效果不叠加',
+        'Does not stack.': '花瓣效果不叠加。',
         'Extra range: ': '距离加成：',
 
 
@@ -1352,12 +1350,12 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
 
 
         'Web': '网',
-        'It\'s really sticky.': '黏糊糊的，用于减速敌人',
+        'It\'s really sticky.': '黏糊糊的，用于减速敌人。',
 
 
 
         'Wing': '翅膀',
-        'It comes and goes.': '像回旋镖一样的翅膀',
+        'It comes and goes.': '像回旋镖一样的翅膀。',
 
 
 
@@ -1605,11 +1603,6 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
 
         'Centipede': '蜈蚣',
         'It\'s just there doing its thing.': '花不犯它，它不犯花。',
-
-
-
-        'Hel Beetle': '地狱甲虫',
-        'Scourge that spawns in the other plane.': '地狱·超级加强·甲虫。',
 
 
 
