@@ -31,7 +31,7 @@
 - - 更换服号：`ctrl+m`。
 - 重制花瓣再装填动画，可选择关闭。
 - 提供了一个友好的字体更换入口。
-- Ultra 全服通告，加入 <https://discord.gg/3RYgxvvzKY> 查看。
+- Ultra 全服通告，加入 <https://discord.gg/3RYgxvvzKY> 查看。感谢 Furaken / sk#3334（Discord）。
 - 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
 - 说说功能，按 `ctrl+[` 即可发送说说，在 <https://chat.ztrztr.top/channel/Chat> 查看
 
@@ -43,6 +43,8 @@ QQ：暂无。
 
 # 贡献者
 [lexiyvv](https://github.com/lexiyvv)
+
+Furaken / sk#3334（Discord）
 
 florr修仙传
 
