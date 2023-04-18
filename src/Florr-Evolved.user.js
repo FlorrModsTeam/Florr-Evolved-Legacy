@@ -36,7 +36,7 @@
         width: 700px;
         height: auto;
         background: rgba(0,0,0,0.5);
-        z-index: 1;
+        z-index: 100000000;
         position: relative;
         border-radius: 200px;
         margin: 0 auto;
@@ -46,7 +46,7 @@
         padding: 10px;
         text-shadow: rgb(0 0 0) 2px 0px 0px, rgb(0 0 0) 1.75517px 0.958851px 0px, rgb(0 0 0) 1.0806px 1.68294px 0px, rgb(0 0 0) 0.141474px 1.99499px 0px, rgb(0 0 0) -0.832294px 1.81859px 0px, rgb(0 0 0) -1.60229px 1.19694px 0px, rgb(0 0 0) -1.97998px 0.28224px 0px, rgb(0 0 0) -1.87291px -0.701566px 0px, rgb(0 0 0) -1.30729px -1.5136px 0px, rgb(0 0 0) -0.421592px -1.95506px 0px, rgb(0 0 0) 0.567324px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px, rgb(0 0 0) 1.92034px -0.558831px 0px;
         pointer-events: none;
-        top: -80px;
+        top: -150px;
         transition: 1s ease-in-out;
     }
 
@@ -234,7 +234,7 @@
 
 
 
-    input {
+    input[type=text] {
         padding: 0.2vh 0.7vw 0.2vh 0.7vw;
         border: rgb(150, 150, 150) solid 0.2vw;
         background-color: rgb(255, 255, 255);
@@ -246,14 +246,33 @@
         margin: 0.7vh 0 0.7vh 0;
     }
 
-    input:hover {
+    input[type=text]:hover {
         border: rgb(102, 102, 102) solid 0.2vw;
     }
 
-    input:focus-visible {
+    input[type=text]:focus-visible {
         background-color: rgb(255, 255, 255);
         border: rgb(0, 120, 215) solid 0.2vw;
         outline: none;
+    }
+
+    input[type=checkbox] {
+        margin: 0;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        margin: 1.5vh 0vh 1.5vh 0vh;
+    }
+
+    .option>.name {
+        flex: 1 0 0;
+    }
+
+    .option>.checkbox {
+        display: flex;
+        align-items: center;
     }
 
 
@@ -303,7 +322,7 @@
 
     }
 
-    #alert {
+    #popup {
         position: absolute;
         z-index: 100000000;
         top: 0;
@@ -315,20 +334,20 @@
         pointer-events: none;
     }
 
-    #alert[opening=false] {
+    #popup[opening=false] {
         pointer-events: none;
         opacity: 0;
         animation: mymove2 cubic-bezier(.17, .84, .44, 1) 300ms;
     }
 
-    #alert[opening=true] {
+    #popup[opening=true] {
         display: block;
         pointer-events: initial;
         opacity: 1;
-        animation: mymove1 cubic-bezier(.17,.84,.44,1) 300ms;
+        animation: mymove1 cubic-bezier(.17, .84, .44, 1) 300ms;
     }
 
-    #alert-box {
+    #popup-box {
         display: none;
         position: absolute;
         width: 30vw;
@@ -338,54 +357,70 @@
         transform: translateX(-50%) translateY(-50%);
     }
 
-    #alert[opening=false] #alert-box {
-        animation: box2 cubic-bezier(0,.5,.5,1) 350ms;
+    #popup[opening=false] #popup-box {
+        animation: box2 cubic-bezier(0, .5, .5, 1) 350ms;
     }
 
-    #alert[opening=true] #alert-box {
-        animation: box cubic-bezier(0,.8,.17,1) 350ms;
+    #popup[opening=true] #popup-box {
+        animation: box cubic-bezier(0, .8, .17, 1) 350ms;
     }
 
-    #alert-box>div {
+    #popup-box>div {
         display: none;
         width: 26vw;
     }
 
-    #alert-box>div>.describe {
+    #popup-box>div>.describe {
         display: inline-block;
         width: 26vw;
         padding: 3vh 2vw 3vh 2vw;
         background: rgb(229, 229, 229);
     }
 
-    #alert-box>div>.interaction {
+    #popup-box>div>.interaction {
         display: inline-block;
         width: 26vw;
         padding: 3vh 2vw 3vh 2vw;
         background: rgb(255, 255, 255);
     }
 
-    #alert-box>div>.describe>.title {
+    #popup-box>div>.describe>.title {
         margin: 0 0 1.5vh 0;
         font-size: 2vw;
         line-height: 2vw;
     }
 
-    #alert-box>div>.describe>.text {
+    #popup-box>div>.describe>.text {
         margin: 0;
         font-size: 1vw;
         line-height: 1vw;
     }
 
-    #alert-box>div>.interaction>input:nth-of-type(1) {
+    #popup-box>div>.interaction>input:nth-of-type(1) {
         margin: 0 0 0.7vh 0;
     }
 
-    #alert-box>div>.interaction>input:nth-last-of-type(1) {
+    #popup-box>div>.interaction>input:nth-last-of-type(1) {
         margin: 0.7vh 0 0 0;
     }
 
-    #alert-box>div>.interaction>button {
+    #popup-box>div>.interaction>input:nth-of-type(1):nth-last-of-type(1) {
+        margin: 0 0 0 0;
+    }
+
+    #popup-box>div>.interaction>.option:nth-of-type(1) {
+        margin: 0 0 1.5vh 0;
+    }
+
+    #popup-box>div>.interaction>.option:nth-last-of-type(1) {
+        margin: 1.5vh 0 0 0;
+    }
+
+    #popup-box>div>.interaction>.option:nth-of-type(1):nth-last-of-type(1) {
+        margin: 0 0 0 0;
+    }
+
+    #popup-box>div>.interaction>button {
         float: right;
         margin: 2vh 0 0 0.5vw;
     }
@@ -399,6 +434,11 @@
         height:0;
     }
     `)
+
+
+
+    function dq(query) { return document.querySelector(query) }
+    function dqa(query) { return document.querySelectorAll(query) }
 
 
 
@@ -419,11 +459,114 @@
 
     const popup = new class {
         constructor() {
+            this.popupOpening = {}
+
+            const popupWindow = document.createElement("div")
+            popupWindow.id = "popup"
+            popupWindow.innerHTML = `
+<div id="popup-box">
+</div>
+            `
+            document.body.appendChild(popupWindow)
+
+            const reportPopup = document.createElement("div")
+            reportPopup.id = "report-popup"
+            reportPopup.innerHTML = `
+<div class="describe">
+<div class="title">报告生物生成</div>
+<div class="text">当您遇到 Ultra/Super 生物生成，可以在此处报告，报告内容将发送至 chat.ztrztr.top</div>
+</div>
+<div class="interaction">
+<input id="level" type="text" name="level" placeholder="Mob Level/生物等级">
+<input id="name" type="text" name="name" placeholder="Mob Name/生物名称">
+<input id="file-upload" type="file" name="file-upload">
+<button class="normal-button" id="submit">
+    <p>提交</p>
+</button>
+<button class="normal-button" id="cancel">
+    <p>取消</p>
+</button>
+</div>
+            `
+            dq("#popup-box").appendChild(reportPopup)
+
+            const settingsPopup = document.createElement("div")
+            settingsPopup.id = "settings-popup"
+            settingsPopup.innerHTML = `
+<div class="describe">
+<div class="title">设置面板</div>
+<div class="text">修改设置</div>
+</div>
+<div class="interaction">
+<div class="option">
+    <div class="name">你好</div>
+    <div class="checkbox">
+        <input id="uid" type="checkbox" name="uid">
+        <div></div>
+    </div>
+</div>
+<div class="option">
+    <div class="name">你好世界</div>
+    <div class="checkbox">
+        <input id="uid" type="checkbox" name="uid">
+        <div></div>
+    </div>
+</div>
+<button class="normal-button" id="save">
+    <p>保存</p>
+</button>
+<button class="normal-button" id="cancel">
+    <p>取消</p>
+</button>
+</div>
+            `
+            dq("#popup-box").appendChild(settingsPopup)
+
+            dq("#report-popup").addEventListener("drop", (e) => { dropImgIntoPage(e) }, false)
+            dq("#report-popup").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
+            dq("#report-popup").addEventListener("dragover", (e) => { e.preventDefault() }, false)
+            dq("#report-popup").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
+            dq("#popup").addEventListener("drop", (e) => { e.preventDefault() }, false)
+            dq("#popup").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
+            dq("#popup").addEventListener("dragover", (e) => { e.preventDefault() }, false)
+            dq("#popup").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
+            dq("html").addEventListener('paste', (e) => { pasteImgIntoPage(e) }, false)
+            dq("#report-popup .normal-button#submit").addEventListener("click", () => { prepareReportContent.start() })
+            for (let i of dqa(".normal-button#cancel")) { i.addEventListener("click", () => { popup.close(i.parentElement.parentElement.id) }) }
         }
-        appear(input1, input2) {
+        open(id) {
+            for (let i of dqa(`div#popup-box>div#${id}>.interaction>input`)) { i.value = "" }
+            dq("div#popup").setAttribute("opening", "true")
+            dq("div#popup-box").setAttribute("opening", "true")
+            dq(`div#${id}`).style.display = "block"
+            dq("div#popup-box").style.display = "block"
+            this.popupOpening[id] = true
+            eventHookStart()
+        }
+        close(id) {
+            for (let i of dqa(`div#popup-box>div#${id}>.interaction>input`)) { i.value = "" }
+            this.popupOpening[id] = false
+            function allPopupOpeningState() { //如果 popupOpening 内的所有元素均为 false，则返回 true
+                for (let i of Object.keys(popup.popupOpening)) {
+                    if (!popup.popupOpening[i]) { continue }
+                    else { return false }
+                }
+                return true
+            }
+            if (allPopupOpeningState()) {
+                dq("div#popup").setAttribute("opening", "false")
+                dq("div#popup-box").setAttribute("opening", "false")
+                eventHookEnd()
+                setTimeout(() => {
+                    if (this.popupOpening[id]) { return }
+                    dq(`div#${id}`).style.display = "none"
+                    if (dq("div#popup-box").getAttribute("opening") == "true") { return }
+                    dq("div#popup-box").style.display = "none"
+                }, 400)
+            }
+            else { dq(`div#${id}`).style.display = "none" }
         }
     }
-
 
 
     const toast = new class {
@@ -559,52 +702,14 @@
 
 
 
-
-    function dq(query) {
-        return document.querySelector(query)
-    }
-    function dqa(query) {
-        return document.querySelectorAll(query)
-    }
-
-    let alertOpening = []
-    function alertOpen(id) {
-        for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
-        dq("div#alert").setAttribute("opening", "true")
-        dq("div#alert-box").setAttribute("opening", "true")
-        dq(`div#${id}`).style.display = "block"
-        dq("div#alert-box").style.display = "block"
-        alertOpening[id] = true
-        eventHookStart()
-    }
-    function alertClose(id) {
-        for (let i of dqa(`div#alert-box>div#${id}>.interaction>input`)) { i.value = "" }
-        alertOpening[id] = false
-        if (alertOpening.every(function (a) { return !a })) { /*如果都是alertOpening，则数组里均为False*/
-            dq("div#alert").setAttribute("opening", "false")
-            dq("div#alert-box").setAttribute("opening", "false")
-            setTimeout(() => {
-                if (dq("div#alert-box").getAttribute("opening") == "true") { return }
-                dq("div#alert-box").style.display = "none"
-                dq(`div#${id}`).style.display = "none"
-            }, 500)
-        }
-        else { dq(`div#${id}`).style.display = "none" }
-        eventHookEnd()
-    }
-
-
-
-
-
     function dropImgIntoPage(e) {
-        if (dq("div#alert-box").getAttribute("opening") != "true") { return }
+        if (dq("div#popup-box").getAttribute("opening") != "true") { return }
         e.preventDefault()
         imgToBase64(e.dataTransfer.files, (value) => { prepareReportContent.screenshot = value })
     }
 
     function pasteImgIntoPage(e) {
-        if (dq("div#alert-box").getAttribute("opening") != "true") { return }
+        if (dq("div#popup-box").getAttribute("opening") != "true") { return }
         e.preventDefault()
         imgToBase64(e.clipboardData.files, (value) => { prepareReportContent.screenshot = value })
     }
@@ -677,43 +782,6 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
             })
         }
     }
-
-    const popupDiv = document.createElement("div")
-    popupDiv.innerHTML = `
-    <div id="alert">
-        <div id="alert-box">
-            <div id="a1">
-                <div class="describe">
-                    <div class="title">报告生物生成</div>
-                    <div class="text">当您遇到 Ultra/Super 生物生成，可以在此处报告，报告内容将发送至 chat.ztrztr.top</div>
-                </div>
-                <div class="interaction">
-                    <input id="level" type="text" name="level" placeholder="Mob Level/生物等级">
-                    <input id="name" type="text" name="name" placeholder="Mob Name/生物名称">
-                    <input id="file-upload" type="file" name="file-upload">
-                    <button class="normal-button" id="submit">
-                        <p>提交</p>
-                    </button>
-                    <button class="normal-button" id="cancel">
-                        <p>取消</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    `
-    document.body.appendChild(popupDiv)
-    dq("#a1").addEventListener("drop", (e) => { dropImgIntoPage(e) }, false)
-    dq("#a1").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
-    dq("#a1").addEventListener("dragover", (e) => { e.preventDefault() }, false)
-    dq("#a1").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
-    dq("#alert").addEventListener("drop", (e) => { e.preventDefault() }, false)
-    dq("#alert").addEventListener("dragenter", (e) => { e.preventDefault() }, false)
-    dq("#alert").addEventListener("dragover", (e) => { e.preventDefault() }, false)
-    dq("#alert").addEventListener("dragleave", (e) => { e.preventDefault() }, false)
-    dq("html").addEventListener('paste', (e) => { pasteImgIntoPage(e) }, false)
-    dq(".normal-button#submit").addEventListener("click", () => { prepareReportContent.start() })
-    dq(".normal-button#cancel").addEventListener("click", () => { alertClose(dq(".normal-button#cancel").parentElement.parentElement.id) })
 
 
 
@@ -2009,7 +2077,7 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
                 return
             case "]":
                 if (!e.ctrlKey) { return }
-                alertOpen('a1')
+                popup.open("report-popup")
                 /*
                 预期行为：
                 1.用户按下快捷键
@@ -2019,6 +2087,10 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
                 5.通过xhr上传
                 6.依据返回判断是否已成功上传，Event Hook End
                 */
+                return
+            case "/":
+                if (!e.ctrlKey) { return }
+                popup.open("settings-popup")
                 return
             default:
                 return
