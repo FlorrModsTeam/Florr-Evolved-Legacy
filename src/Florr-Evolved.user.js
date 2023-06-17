@@ -1040,8 +1040,8 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
 
         //用户界面-挂机检查
         'AFK Check': '挂机检查',
-        'Are you here?': '你还在这里吗？',
-        'I\'m here': '是的',
+        'Are you here?': '您还在这里吗？',
+        'I\'m here': '我在',
 
 
 
