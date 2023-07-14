@@ -3,7 +3,7 @@
 // @namespace       A florr.io userjs
 // @description     强大的 Florr.io 增强脚本
 // @version         0.1.0
-// @author          -lexiyvv, flo修仙传, Tinhone, ztrztr, squid233
+// @author          -lexiyvv, flo修仙传, Tinhone, squid233
 // @license         GPL-3.0
 // @run-at          document-start
 // @match           *://florr.io/*
@@ -474,7 +474,7 @@
             reportPopup.innerHTML = `
 <div class="describe">
 <div class="title">报告生物生成</div>
-<div class="text">当您遇到 Ultra/Super 生物生成，可以在此处报告，报告内容将发送至 chat.ztrztr.top</div>
+<div class="text">当您遇到 Ultra/Super 生物生成，可以在此处报告，报告内容将发送至 █████████████</div>
 </div>
 <div class="interaction">
 <input id="level" type="text" name="level" placeholder="Mob Level/生物等级">
@@ -624,7 +624,7 @@
             this.detectedMobArray.push([mobLevel, mobName, timestamp, textColor])
         }
         report(reportContent) {
-            const xhr = createXhr("post", "https://chat.ztrztr.top/hooks/642904a166a580d8d2c7580c/XkAf4G9yfvEXNLLChLwYvqKoScmv3E8heyLSZkAgPC6cqCjk")
+            const xhr = undefined
             const sendContent = JSON.stringify(reportContent)
             console.log(sendContent)
             xhr.send(sendContent)
@@ -807,9 +807,6 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
     const doc = document.createElement('div')
     doc.setAttribute("id", "idk")
     document.body.appendChild(doc)
-
-
-    const reportMobSpawnApi = "https://api.ztrztr.top/api/fc_send?un=someone&sid=" //
 
 
     function reportMobSpawnToApi(rarity, name, serverRegion) {
@@ -2076,18 +2073,19 @@ Cp6 Player ID Hash/Cp6玩家ID哈希: ${cp6PlayerIdHash}\n\n
                 changeServerById()
                 return
             case "]":
-                if (!e.ctrlKey) { return }
-                popup.open("report-popup")
-                /*
-                预期行为：
-                1.用户按下快捷键
-                2.弹出上传窗口，Event Hook Start
-                3.用户填写信息并添加图片文件
-                4.后台收集服务器地域、服务器ID、地图编号、api host、用户cp6 Hash、时间戳
-                5.通过xhr上传
-                6.依据返回判断是否已成功上传，Event Hook End
-                */
                 return
+                // if (!e.ctrlKey) { return }
+                // popup.open("report-popup")
+                // /*
+                // 预期行为：
+                // 1.用户按下快捷键
+                // 2.弹出上传窗口，Event Hook Start
+                // 3.用户填写信息并添加图片文件
+                // 4.后台收集服务器地域、服务器ID、地图编号、api host、用户cp6 Hash、时间戳
+                // 5.通过xhr上传
+                // 6.依据返回判断是否已成功上传，Event Hook End
+                // */
+                // return
             case "/":
                 if (!e.ctrlKey) { return }
                 popup.open("settings-popup")
