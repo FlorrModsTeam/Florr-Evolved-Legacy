@@ -13,6 +13,7 @@
 <br>
 
 # 注意事项
+- 若你使用激进的脚本，你的账号将有极大的概率被封禁。你已经被警告过了。
 - 请注意这尚且不是一个健壮的版本。
 - 需要浏览器装有 [Tampermonkey](https://tampermonkey.net/) 或 [Violentmonkey](https://violentmonkey.github.io/) 插件。
 - 会对性能产生轻微影响。
@@ -33,11 +34,10 @@
 - 重制花瓣再装填动画，可选择关闭。
 - 提供了一个友好的字体更换入口。
 - Ultra 全服通告，加入 <https://discord.gg/3RYgxvvzKY> 查看。感谢 Furaken / sk#3334（Discord）。
-- 全服 Chat（待做，现在就用 <https://chat.ztrztr.top/channel/florr>）
-- 说说功能，按 `ctrl+[` 即可发送说说，在 <https://chat.ztrztr.top/channel/Chat> 查看
+
 
 # 其他分发平台
-Greasyfork：<https://greasyfork.org/zh-CN/scripts/464050-florr-io-evolved>。
+Greasyfork：暂无。
 
 QQ：暂无。
 
@@ -50,8 +50,6 @@ Furaken / sk#3334（Discord）
 florr修仙传
 
 [Tinhone](https://github.com/Tinhone)
-
-[ztrztr](https://github.com/ZhongTianrui)
 
 [squid233](https://github.com/squid233)
 
@@ -73,7 +71,13 @@ florr修仙传
 
 
 # 开源许可
-见 [LICENSE](./LICENSE)。
+该程序在 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) 开源协议下发布，同时附有附加条款。
+
+### 附加条款 (依据 GPLv3 开源协议第七条)
+
+1. 当您分发该程序的修改版本时，您必须以一种合理的方式修改该程序的名称或版本号，以示其与原始版本不同。(依据 GPLv3，7(c))
+
+2. 您不得移除该程序所显示的版权声明。(依据 GPLv3，7(b))
 
 
 # 参与项目
